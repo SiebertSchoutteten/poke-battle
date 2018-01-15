@@ -487,7 +487,6 @@
                 "Swords Dance", "Toxic", "Body Slam", "Take Down", "Double-Edge", "Rage", "Mega Drain", "Solar Beam", "Mimic", "Double Team", "Reflect", "Bide", "Rest", "Substitute", "Cut"
             ]
         }
-
     },
     {
        "number":12,
@@ -714,7 +713,46 @@
           "defense":58,
           "speed":80,
           "special":65
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Scratch"
+                },
+                {
+                    "level": 1,
+                    "move": "Ember"
+                },
+                {
+                    "level": 9,
+                    "move": "Ember"
+                },
+                {
+                    "level": 15,
+                    "move": "Leer"
+                },
+                {
+                    "level": 22,
+                    "move": "Rage"
+                },
+                {
+                    "level": 30,
+                    "move": "Slash"
+                },
+                {
+                    "level": 38,
+                    "move": "Flamethrower"
+                },
+                {
+                    "level": 46,
+                    "move": "Fire Spin"
+                }
+            ],
+            "tmSet": [
+                "Mega Punch", "Swords Dance", "Mega Kick", "Toxic", "Body Slam", "Take Down", "Double-Edge", "Submission", "Counter", "Seismic Toss", "Rage", "Dragon Rage", "Dig", "Mimic", "Double Team", "Reflect", "Bide", "Fire Blast", "Swift", "Skull Bash", "Rest", "Substitute", "Cut", "Strength"
+            ]
+        }
     },
     {
        "number":36,
@@ -728,7 +766,46 @@
           "defense":73,
           "speed":60,
           "special":85
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Sing"
+                },
+                {
+                    "level": 1,
+                    "move": "Double Slap"
+                },
+                {
+                    "level": 1,
+                    "move": "Minimize"
+                },
+                {
+                    "level": 1,
+                    "move": "Metronome"
+                },
+                {
+                    "level": 39,
+                    "move": "Defense Curl"
+                },
+                {
+                    "level": 1,
+                    "move": "Growl"
+                },
+                {
+                    "level": 45,
+                    "move": "Light Screen"
+                },
+                {
+                    "level": 1,
+                    "move": "Pound"
+                }
+            ],
+            "tmSet": [
+                "Mega Punch", "Mega Kick", "Toxic", "Body Slam", "Take Down", "Double-Edge", "Bubble Beam", "Water Gun", "Ice Beam", "Blizzard", "Hyper Beam", "Submission", "Counter", "Seismic Toss", "Rage", "Solar Beam", "Thunderbolt", "Thunder", "Psychic", "Teleport", "Mimic", "Double Team", "Reflect", "Bide", "Metronome", "Fire Blast", "Skull Bash", "Rest", "Thunder Wave", "Psywave", "Tri Attack", "Substitute", "Strength", "Flash"
+            ]
+        }
     },
     {
        "number":35,
@@ -742,7 +819,43 @@
           "defense":48,
           "speed":35,
           "special":60
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Pound"
+                },
+                {
+                    "level": 1,
+                    "move": "Growl"
+                },
+                {
+                    "level": 13,
+                    "move": "Sing"
+                },
+                {
+                    "level": 18,
+                    "move": "Double Slap"
+                },
+                {
+                    "level": 24,
+                    "move": "Minimize"
+                },
+                {
+                    "level": 39,
+                    "move": "Defense Curl"
+                },
+                {
+                    "level": 48,
+                    "move": "Light Screen"
+                }
+            ],
+            "tmSet": [
+                "Mega Punch", "Mega Kick", "Toxic", "Body Slam", "Take Down", "Double-Edge", "Bubble Beam", "Water Gun", "Ice Beam", "Blizzard", "Submission", "Counter", "Seismic Toss", "Rage", "Solar Beam", "Thunderbolt", "Thunder", "Psychic", "Teleport", "Mimic", "Double Team", "Reflect", "Bide", "Metronome", "Fire Blast", "Skull Bash", "Rest", "Thunder Wave", "Psywave", "Tri Attack", "Substitute", "Strength", "Flash" 
+            ]
+        }
+
     },
     {
        "number":91,
@@ -757,7 +870,35 @@
           "defense":180,
           "speed":70,
           "special":85
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Withdraw"
+                },
+                {
+                    "level": 1,
+                    "move": "Supersonic"
+                },
+                {
+                    "level": 1,
+                    "move": "Clamp"
+                },
+                {
+                    "level": 1,
+                    "move": "Aurora Beam"
+                },
+                {
+                    "level": 50,
+                    "move": "Spike Cannon"
+                }
+            ],
+            "tmSet": [
+                "Toxic", "Take Down", "Double-Edge", "Bubble Beam", "Water Gun", "Ice Beam", "Blizzard", "Hyper Beam", "Rage", "Teleport", "Mimic", "Double Team", "Reflect", "Bide", "Selfdestruct", "Swift", "Rest", "Explosion", "Tri Attack", "Substitute", "Surf"
+            ]
+        }
+
     },
     {
        "number":104,
@@ -771,7 +912,43 @@
           "defense":95,
           "speed":35,
           "special":40
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Growl"
+                },
+                {
+                    "level": 1,
+                    "move": "Bone Club"
+                },
+                {
+                    "level": 25,
+                    "move": "Leer"
+                },
+                {
+                    "level": 31,
+                    "move": "Focus Energy"
+                },
+                {
+                    "level": 38,
+                    "move": "Thrash"
+                },
+                {
+                    "level": 43,
+                    "move": "Bonemerang"
+                },
+                {
+                    "level": 46,
+                    "move": "Rage"
+                }
+            ],
+            "tmSet": [
+                "Mega Punch", "Mega Kick", "Toxic", "Body Slam", "Take Down", "Double-Edge", "Bubble Beam", "Water Gun", "Ice Beam", "Blizzard", "Submission", "Counter", "Seismic Toss", "Rage", "Earthquake", "Fissure", "Dig", "Mimic", "Double Team", "Bide", "Fire Blast", "Skull Bash", "Rest", "Substitute", "Strength"
+            ]
+        }
+
     },
     {
        "number":87,
@@ -786,7 +963,39 @@
           "defense":80,
           "speed":70,
           "special":95
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Headbutt"
+                },
+                {
+                    "level": 1,
+                    "move": "Growl"
+                },
+                {
+                    "level": 1,
+                    "move": "Aurora Beam"
+                },
+                {
+                    "level": 44,
+                    "move": "Rest"
+                },
+                {
+                    "level": 50,
+                    "move": "Take Down"
+                },
+                {
+                    "level": 56,
+                    "move": "Ice Beam"
+                }
+            ],
+            "tmSet": [
+                "Toxic", "Horn Drill", "Body Slam", "Take Down", "Double-Edge", "Bubble Beam", "Water Gun", "Ice Beam", "Blizzard", "Hyper Beam", "Pay Day", "Rage", "Mimic", "Double Team", "Bide", "Skull Bash", "Rest", "Substitute", "Surf", "Strength"
+            ]
+        }
+
     },
     {
        "number":50,
@@ -800,7 +1009,39 @@
           "defense":25,
           "speed":95,
           "special":45
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Scratch"
+                },
+                {
+                    "level": 15,
+                    "move": "Growl"
+                },
+                {
+                    "level": 19,
+                    "move": "Dig"
+                },
+                {
+                    "level": 24,
+                    "move": "Sand Attack"
+                },
+                {
+                    "level": 31,
+                    "move": "Slash"
+                },
+                {
+                    "level": 40,
+                    "move": "Earthquake"
+                }
+            ],
+            "tmSet": [
+                "Toxic", "Body Slam", "Take Down", "Double-Edge", "Rage", "Earthquake", "Fissure", "Dig", "Mimic", "Double Team", "Bide", "Rest", "Rock Slide", "Substitute", "Cut"
+            ]
+        }
+
     },
     {
        "number":132,
@@ -814,7 +1055,18 @@
           "defense":48,
           "speed":48,
           "special":48
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Transform"
+                }
+            ],
+            "tmSet": [
+            
+            ]
+        }
     },
     {
        "number":85,
@@ -829,7 +1081,42 @@
           "defense":70,
           "speed":100,
           "special":60
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Peck"
+                },
+                {
+                    "level": 1,
+                    "move": "Growl"
+                },
+                {
+                    "level": 1,
+                    "move": "Fury Attack"
+                },
+                {
+                    "level": 30,
+                    "move": "Drill Peck"
+                },
+                {
+                    "level": 39,
+                    "move": "Rage"
+                },
+                {
+                    "level": 45,
+                    "move": "Tri Attack"
+                },
+                {
+                    "level": 51,
+                    "move": "Agility"
+                }
+            ],
+            "tmSet": [
+                "Whirlwind", "Toxic", "Body Slam", "Take Down", "Double-Edge", "Hyper Beam", "Rage", "Mimic", "Double Team", "Reflect", "Bide", "Skull Bash", "Sky Attack", "Rest", "Tri Attack", "Substitute", "Fly"
+            ]
+        }
     },
     {
        "number":84,
@@ -844,7 +1131,42 @@
           "defense":45,
           "speed":75,
           "special":35
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Peck"
+                },
+                {
+                    "level": 20,
+                    "move": "Growl"
+                },
+                {
+                    "level": 24,
+                    "move": "Fury Attack"
+                },
+                {
+                    "level": 30,
+                    "move": "Drill Peck"
+                },
+                {
+                    "level": 36,
+                    "move": "Rage"
+                },
+                {
+                    "level": 40,
+                    "move": "Tri Attack"
+                },
+                {
+                    "level": 44,
+                    "move": "Agility"
+                }
+            ],
+            "tmSet": [
+                "Whirlwind", "Toxic", "Body Slam", "Take Down", "Double-Edge", "Rage", "Mimic", "Double Team", "Reflect", "Bide", "Skull Bash", "Sky Attack", "Rest", "Tri Attack", "Substitute", "Fly"
+            ]
+        }
     },
     {
        "number":148,
@@ -858,7 +1180,43 @@
           "defense":65,
           "speed":70,
           "special":70
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Wrap"
+                },
+                {
+                    "level": 1,
+                    "move": "Leer"
+                },
+                {
+                    "level": 1,
+                    "move": "Thunder Wave"
+                },
+                {
+                    "level": 20,
+                    "move": "Agility"
+                },
+                {
+                    "level": 35,
+                    "move": "Slam"
+                },
+                {
+                    "level": 45,
+                    "move": "Dragon Rage"
+                },
+                {
+                    "level": 55,
+                    "move": "Hyper Beam"
+                }
+            ],
+            "tmSet": [
+                "Toxic", "Horn Drill", "Body Slam", "Take Down", "Double-Edge", "Bubble Beam", "Water Gun", "Ice Beam", "Blizzard", "Rage", "Dragon Rage", "Thunderbolt", "Thunder", "Mimic", "Double Team", "Reflect", "Bide", "Fire Blast", "Swift", "Skull Bash", "Rest", "Thunder Wave", "Substitute", "Surf"
+            ]
+        }
+
     },
     {
        "number":149,
@@ -873,7 +1231,43 @@
           "defense":95,
           "speed":80,
           "special":100
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Wrap"
+                },
+                {
+                    "level": 1,
+                    "move": "Leer"
+                },
+                {
+                    "level": 1,
+                    "move": "Thunder Wave"
+                },
+                {
+                    "level": 1,
+                    "move": "Agility"
+                },
+                {
+                    "level": 35,
+                    "move": "Slam"
+                },
+                {
+                    "level": 45,
+                    "move": "Dragon Rage"
+                },
+                {
+                    "level": 60,
+                    "move": "Hyper Beam"
+                }
+            ],
+            "tmSet": [
+                "Razor Wind", "Toxic", "Horn Drill", "Body Slam", "Take Down", "Double-Edge", "Bubble Beam", "Water Gun", "Ice Beam", "Blizzard", "Hyper Beam", "Rage", "Dragon Rage", "Thunderbolt", "Thunder", "Mimic", "Double Team", "Reflect", "Bide", "Fire Blast", "Swift", "Skull Bash", "Rest", "Thunder Wave", "Substitute", "Surf", "Strength"
+            ]
+        }
+
     },
     {
        "number":147,
@@ -887,7 +1281,43 @@
           "defense":45,
           "speed":50,
           "special":50
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Wrap"
+                },
+                {
+                    "level": 1,
+                    "move": "Leer"
+                },
+                {
+                    "level": 10,
+                    "move": "Thunder Wave"
+                },
+                {
+                    "level": 20,
+                    "move": "Agility"
+                },
+                {
+                    "level": 30,
+                    "move": "Slam"
+                },
+                {
+                    "level": 40,
+                    "move": "Dragon Rage"
+                },
+                {
+                    "level": 50,
+                    "move": "Hyper Beam"
+                }
+            ],
+            "tmSet": [
+                "Toxic", "Body Slam", "Take Down", "Double-Edge", "Bubble Beam", "Water Gun", "Ice Beam", "Blizzard", "Rage", "Dragon Rage", "Thunderbolt", "Thunder", "Mimic", "Double Team", "Reflect", "Bide", "Fire Blast", "Swift", "Skull Bash", "Rest", "Thunder Wave", "Substitute", "Surf"
+            ]
+        }
+
     },
     {
        "number":96,
@@ -901,7 +1331,47 @@
           "defense":45,
           "speed":42,
           "special":90
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Pound"
+                },
+                {
+                    "level": 1,
+                    "move": "Hypnosis"
+                },
+                {
+                    "level": 12,
+                    "move": "Disable"
+                },
+                {
+                    "level": 17,
+                    "move": "Confusion"
+                },
+                {
+                    "level": 24,
+                    "move": "Headbutt"
+                },
+                {
+                    "level": 29,
+                    "move": "Poison Gas"
+                },
+                {
+                    "level": 32,
+                    "move": "Psychic"
+                },
+                {
+                    "level": 37,
+                    "move": "Meditate"
+                }
+            ],
+            "tmSet": [
+                "Mega Punch", "Mega Kick", "Toxic", "Body Slam", "Take Down", "Double-Edge", "Submission", "Counter", "Seismic Toss", "Rage", "Psychic", "Teleport", "Mimic", "Double Team", "Reflect", "Bide", "Metronome", "Skull Bash", "Dream Eater", "Rest", "Thunder Wave", "Psywave", "Tri Attack", "Substitute", "Flash"
+            ]
+        }
+
     },
     {
        "number":51,
@@ -915,7 +1385,38 @@
           "defense":50,
           "speed":120,
           "special":70
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Scratch"
+                },
+                {
+                    "level": 1,
+                    "move": "Growl"
+                },
+                {
+                    "level": 1,
+                    "move": "Dig"
+                },
+                {
+                    "level": 24,
+                    "move": "Sand Attack"
+                },
+                {
+                    "level": 35,
+                    "move": "Slash"
+                },
+                {
+                    "level": 47,
+                    "move": "Earthquake"
+                }
+            ],
+            "tmSet": [
+                "Toxic", "Body Slam", "Take Down", "Double-Edge", "Hyper Beam", "Rage", "Earthquake", "Fissure", "Dig", "Mimic", "Double Team", "Bide", "Rest", "Rock Slide", "Substitute", "Cut"
+            ]
+        }
     },
     {
        "number":133,
@@ -929,7 +1430,38 @@
           "defense":50,
           "speed":55,
           "special":65
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Tackle"
+                },
+                {
+                    "level": 31,
+                    "move": "Tail Whip"
+                },
+                {
+                    "level": 1,
+                    "move": "Sand Attack"
+                },
+                {
+                    "level": 27,
+                    "move": "Quick Attack"
+                },
+                {
+                    "level": 37,
+                    "move": "Bite"
+                },
+                {
+                    "level": 45,
+                    "move": "Take Down"
+                }
+            ],
+            "tmSet": [
+                "Toxic", "Body Slam", "Take Down", "Double-Edge", "Rage", "Mimic", "Double Team", "Reflect", "Bide", "Swift", "Skull Bash", "Rest", "Substitute"
+            ]
+        }
     },
     {
        "number":23,
@@ -943,7 +1475,42 @@
           "defense":44,
           "speed":55,
           "special":40
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Wrap"
+                },
+                {
+                    "level": 1,
+                    "move": "Leer"
+                },
+                {
+                    "level": 10,
+                    "move": "Poison Sting"
+                },
+                {
+                    "level": 17,
+                    "move": "Bite"
+                },
+                {
+                    "level": 24,
+                    "move": "Glare"
+                },
+                {
+                    "level": 31,
+                    "move": "Screech"
+                },
+                {
+                    "level": 38,
+                    "move": "Acid"
+                }
+            ],
+            "tmSet": [
+                "Toxic", "Body Slam", "Take Down", "Double-Edge", "Rage", "Mega Drain", "Earthquake", "Fissure", "Dig", "Mimic", "Double Team", "Bide", "Skull Bash", "Rest", "Rock Slide", "Substitute", "Strength"
+            ]
+        }
     },
     {
        "number":125,
@@ -957,7 +1524,42 @@
           "defense":57,
           "speed":105,
           "special":85
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Quick Attack"
+                },
+                {
+                    "level": 1,
+                    "move": "Leer"
+                },
+                {
+                    "level": 34,
+                    "move": "Thunder Shock"
+                },
+                {
+                    "level": 37,
+                    "move": "Screech"
+                },
+                {
+                    "level": 42,
+                    "move": "Thunder Punch"
+                },
+                {
+                    "level": 49,
+                    "move": "Light Screen"
+                },
+                {
+                    "level": 54,
+                    "move": "Thunder"
+                }
+            ],
+            "tmSet": [
+                "Mega Punch", "Mega Kick", "Toxic", "Body Slam", "Take Down", "Double-Edge", "Hyper Beam", "Submission", "Counter", "Seismic Toss", "Rage", "Thunderbolt", "Thunder", "Psychic", "Teleport", "Mimic", "Double Team", "Reflect", "Bide", "Metronome", "Swift", "Skull Bash", "Rest", "Psywave", "Substitute", "Strength", "Flash"
+            ]
+        }
     },
     {
        "number":101,
@@ -971,7 +1573,42 @@
           "defense":70,
           "speed":140,
           "special":80
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Tackle"
+                },
+                {
+                    "level": 1,
+                    "move": "Screech"
+                },
+                {
+                    "level": 1,
+                    "move": "Sonic Boom"
+                },
+                {
+                    "level": 22,
+                    "move": "Selfdestruct"
+                },
+                {
+                    "level": 29,
+                    "move": "Light Screen"
+                },
+                {
+                    "level": 40,
+                    "move": "Swift"
+                },
+                {
+                    "level": 50,
+                    "move": "Explosion"
+                }
+            ],
+            "tmSet": [
+                "Toxic", "Take Down", "Hyper Beam", "Rage", "Thunderbolt", "Thunder", "Teleport", "Mimic", "Double Team", "Reflect", "Bide", "Selfdestruct", "Swift", "Skull Bash", "Rest", "Thunder Wave", "Explosion", "Substitute", "Flash"
+            ]
+        }
     },
     {
        "number":102,
@@ -986,7 +1623,46 @@
           "defense":80,
           "speed":40,
           "special":60
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Barrage"
+                },
+                {
+                    "level": 1,
+                    "move": "Hypnosis"
+                },
+                {
+                    "level": 25,
+                    "move": "Reflect"
+                },
+                {
+                    "level": 28,
+                    "move": "Leech Seed"
+                },
+                {
+                    "level": 32,
+                    "move": "Stun Spore"
+                },
+                {
+                    "level": 37,
+                    "move": "Poison Powder"
+                },
+                {
+                    "level": 42,
+                    "move": "Solar Beam"
+                },
+                {
+                    "level": 48,
+                    "move": "Sleep Powder"
+                }
+            ],
+            "tmSet": [
+                "Toxic", "Take Down", "Double-Edge", "Rage", "Psychic", "Teleport", "Mimic", "Double Team", "Reflect", "Bide", "Selfdestruct", "Egg Bomb", "Rest", "Psywave", "Explosion", "Substitute"
+            ]
+        }
     },
     {
        "number":103,
@@ -1001,7 +1677,42 @@
           "defense":85,
           "speed":55,
           "special":125
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Barrage"
+                },
+                {
+                    "level": 1,
+                    "move": "Hypnosis"
+                },
+                {
+                    "level": 28,
+                    "move": "Stomp"
+                },
+                {
+                    "level": 28,
+                    "move": "Leech Seed"
+                },
+                {
+                    "level": 32,
+                    "move": "Stun Spore"
+                },
+                {
+                    "level": 37,
+                    "move": "Poison Powder"
+                },
+                {
+                    "level": 48,
+                    "move": "Sleep Powder"
+                }
+            ],
+            "tmSet": [
+                "Toxic", "Take Down", "Double-Edge", "Hyper Beam", "Rage", "Mega Drain", "Solar Beam", "Psychic", "Teleport", "Mimic", "Double Team", "Reflect", "Bide", "Selfdestruct", "Egg Bomb", "Rest", "Psywave", "Explosion", "Substitute", "Strength"
+            ]
+        }
     },
     {
        "number":83,
@@ -1016,7 +1727,42 @@
           "defense":55,
           "speed":60,
           "special":58
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Peck"
+                },
+                {
+                    "level": 1,
+                    "move": "Sand Attack"
+                },
+                {
+                    "level": 7,
+                    "move": "Leer"
+                },
+                {
+                    "level": 15,
+                    "move": "Fury Attack"
+                },
+                {
+                    "level": 23,
+                    "move": "Swords Dance"
+                },
+                {
+                    "level": 31,
+                    "move": "Agility"
+                },
+                {
+                    "level": 39,
+                    "move": "Slash"
+                }
+            ],
+            "tmSet": [
+                "Razor Wind", "Swords Dance", "Whirlwind", "Toxic", "Body Slam", "Take Down", "Double-Edge", "Rage", "Mimic", "Double Team", "Reflect", "Bide", "Swift", "Skull Bash", "Rest", "Substitute", "Cut", "Fly"
+            ]
+        }
     },
     {
        "number":22,
@@ -1031,7 +1777,42 @@
           "defense":65,
           "speed":100,
           "special":61
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Peck"
+                },
+                {
+                    "level": 1,
+                    "move": "Growl"
+                },
+                {
+                    "level": 1,
+                    "move": "Leer"
+                },
+                {
+                    "level": 15,
+                    "move": "Fury Attack"
+                },
+                {
+                    "level": 25,
+                    "move": "Mirror Move"
+                },
+                {
+                    "level": 34,
+                    "move": "Drill Peck"
+                },
+                {
+                    "level": 43,
+                    "move": "Agility"
+                }
+            ],
+            "tmSet": [
+                "Razor Wind", "Whirlwind", "Toxic", "Take Down", "Double-Edge", "Hyper Beam", "Rage", "Mimic", "Double Team", "Bide", "Swift", "Sky Attack", "Rest", "Substitute", "Fly"
+            ]
+        }
     },
     {
        "number":136,
@@ -1045,7 +1826,54 @@
           "defense":60,
           "speed":65,
           "special":110
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level":1 ,
+                    "move": "Tackle"
+                },
+                {
+                    "level": 37,
+                    "move": "Tail Whip"
+                },
+                {
+                    "level": 1,
+                    "move": "Quick Attack"
+                },
+                {
+                    "level": 1,
+                    "move": "Ember"
+                },
+                {
+                    "level": 1,
+                    "move": "Sand Attack"
+                },
+                {
+                    "level": 40,
+                    "move": "Bite"
+                },
+                {
+                    "level": 44,
+                    "move": "Fire Spin"
+                },
+                {
+                    "level": 42,
+                    "move": "Leer"
+                },
+                {
+                    "level": 48,
+                    "move": "Rage"
+                },
+                {
+                    "level": 54,
+                    "move": "FlameThrower"
+                }
+            ],
+            "tmSet": [
+                "Toxic", "Body Slam", "Take Down", "Double-Edge", "Hyper Beam", "Rage", "Mimic", "Double Team", "Reflect", "Bide", "Fire Blast", "Swift", "Skull Bash", "Rest", "Substitute"
+            ]
+        }
     },
     {
        "number":92,
@@ -1060,7 +1888,34 @@
           "defense":30,
           "speed":80,
           "special":100
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Lick"
+                },
+                {
+                    "level": 1,
+                    "move": "Confuse Ray"
+                },
+                {
+                    "level": 1,
+                    "move": "Night Shade"
+                },
+                {
+                    "level": 27,
+                    "move": "Hypnosis"
+                },
+                {
+                    "level": 35,
+                    "move": "Dream Eater"
+                }
+            ],
+            "tmSet": [
+                "Toxic", "Rage", "Mega Drain", "Thunderbolt", "Thunder", "Psychic", "Mimic", "Double Team", "Bide", "Selfdestruct", "Dream Eater", "Rest", "Psywave", "Explosion", "Substitute"
+            ]
+        }
     },
     {
        "number":94,
@@ -1075,7 +1930,34 @@
           "defense":60,
           "speed":110,
           "special":130
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Lick"
+                },
+                {
+                    "level": 1,
+                    "move": "Confuse Ray"
+                },
+                {
+                    "level": 1,
+                    "move": "Night Shade"
+                },
+                {
+                    "level": 29,
+                    "move": "Hypnosis"
+                },
+                {
+                    "level": 38,
+                    "move": "Dream Eater"
+                }
+            ],
+            "tmSet": [
+                "Mega Punch", "Mega Kick", "Toxic", "Body Slam", "Take Down", "Double-Edge", "Hyper Beam", "Submission", "Counter", "Seismic Toss", "Rage", "Mega Drain", "Thunderbolt", "Thunder", "Psychic", "Mimic", "Double Team", "Bide", "Metronome", "Selfdestruct", "Skull Bash", "Dream Eater", "Rest", "Psywave", "Explosion", "Substitute", "Strength"
+            ]
+        }
     },
     {
        "number":74,
@@ -1090,7 +1972,42 @@
           "defense":100,
           "speed":20,
           "special":30
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Tackle"
+                },
+                {
+                    "level": 11,
+                    "move": "Defense Curl"
+                },
+                {
+                    "level": 16,
+                    "move": "Rock Throw"
+                },
+                {
+                    "level": 21,
+                    "move": "Selfdestruct"
+                },
+                {
+                    "level": 26,
+                    "move": "Harden"
+                },
+                {
+                    "level": 31,
+                    "move": "Earthquake"
+                },
+                {
+                    "level": 36,
+                    "move": "Explosion"
+                }
+            ],
+            "tmSet": [
+                "Mega Punch", "Toxic", "Body Slam", "Take Down", "Double-Edge", "Submission", "Counter", "Seismic Toss", "Rage", "Earthquake", "Fissure", "Dig", "Mimic", "Double Team", "Bide", "Metronome", "Selfdestruct", "Fire Blast", "Rest", "Explosion", "Rock Slide", "Substitute", "Strength"
+            ]
+        }
     },
     {
        "number":44,
@@ -1105,7 +2022,42 @@
           "defense":70,
           "speed":40,
           "special":85
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Absorb"
+                },
+                {
+                    "level": 1,
+                    "move": "Poison Powder"
+                },
+                {
+                    "level": 1,
+                    "move": "Stun Spore"
+                },
+                {
+                    "level": 19,
+                    "move": "Sleep Powder"
+                },
+                {
+                    "level": 28,
+                    "move": "Acid"
+                },
+                {
+                    "level": 38,
+                    "move": "Petal Dance"
+                },
+                {
+                    "level": 52,
+                    "move": "Solar Beam"
+                }
+            ],
+            "tmSet": [
+                "Swords Dance", "Toxic", "Take Down", "Double-Edge", "Rage", "Mega Drain", "Solar Beam", "Mimic", "Double Team", "Reflect", "Bide", "Rest", "Substitute", "Cut"
+            ]
+        }
     },
     {
        "number":42,
@@ -1120,7 +2072,42 @@
           "defense":70,
           "speed":90,
           "special":75
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Leech Life"
+                },
+                {
+                    "level": 1,
+                    "move": "Screech"
+                },
+                {
+                    "level": 1,
+                    "move": "Bite"
+                },
+                {
+                    "level": 10,
+                    "move": "Supersonic"
+                },
+                {
+                    "level": 21,
+                    "move": "Confuse Ray"
+                },
+                {
+                    "level": 32,
+                    "move": "Wing Attack"
+                },
+                {
+                    "level": 43,
+                    "move": "Haze"
+                }
+            ],
+            "tmSet": [
+                "Razor Wind", "Whirlwind", "Toxic", "Take Down", "Double-Edge", "Hyper Beam", "Rage", "Mega Drain", "Mimic", "Double Team", "Bide", "Swift", "Rest", "Substitute"
+            ]
+        }
     },
     {
        "number":118,
@@ -1134,7 +2121,46 @@
           "defense":60,
           "speed":63,
           "special":50
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Peck"
+                },
+                {
+                    "level": 1,
+                    "move": "Tail Whip"
+                },
+                {
+                    "level": 19,
+                    "move": "Supersonic"
+                },
+                {
+                    "level": 24,
+                    "move": "Horn Attack"
+                },
+                {
+                    "level": 30,
+                    "move": "Fury Attack"
+                },
+                {
+                    "level": 37,
+                    "move": "Waterfall"
+                },
+                {
+                    "level": 45,
+                    "move": "Horn Drill"
+                },
+                {
+                    "level": 54,
+                    "move": "Agility"
+                }
+            ],
+            "tmSet": [
+                "Toxic", "Horn Drill", "Take Down", "Double-Edge", "Bubble Beam", "Water Gun", "Ice Beam", "Blizzard", "Rage", "Mimic", "Double Team", "Bide", "Swift", "Skull Bash", "Rest", "Substitute", "Surf"
+            ]
+        }
     },
     {
        "number":55,
@@ -1148,7 +2174,38 @@
           "defense":78,
           "speed":85,
           "special":80
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Scratch"
+                },
+                {
+                    "level": 1,
+                    "move": "Tail Whip"
+                },
+                {
+                    "level": 1,
+                    "move": "Disable"
+                },
+                {
+                    "level": 39,
+                    "move": "Confusion"
+                },
+                {
+                    "level": 48,
+                    "move": "Fury Swipes"
+                },
+                {
+                    "level": 59,
+                    "move": "Hydro Pump"
+                }
+            ],
+            "tmSet": [
+                "Mega Punch", "Mega Kick", "Toxic", "Body Slam", "Take Down", "Double-Edge", "Bubble Beam", "Water Gun", "Ice Beam", "Blizzard", "Hyper Beam", "Pay Day", "Submission", "Counter", "Seismic Toss", "Rage", "Dig", "Mimic", "Double Team", "Bide", "Swift", "Skull Bash", "Rest", "Substitute", "Surf", "Strength"
+            ]
+        }
     },
     {
        "number":76,
@@ -1163,7 +2220,42 @@
           "defense":130,
           "speed":45,
           "special":55
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Tackle"
+                },
+                {
+                    "level": 1,
+                    "move": "Defense Curl"
+                },
+                {
+                    "level": 16,
+                    "move": "Rock Throw"
+                },
+                {
+                    "level": 21,
+                    "move": "Selfdestruct"
+                },
+                {
+                    "level": 29,
+                    "move": "Harden"
+                },
+                {
+                    "level": 36,
+                    "move": "Earthquake"
+                },
+                {
+                    "level": 43,
+                    "move": "Explosion"
+                }
+            ],
+            "tmSet": [
+                "Mega Punch", "Mega Kick", "Toxic", "Body Slam", "Take Down", "Double-Edge", "Hyper Beam", "Submission", "Counter", "Seismic Toss", "Rage", "Earthquake", "Fissure", "Dig", "Mimic", "Double Team", "Bide", "Metronome", "Selfdestruct", "Fire Blast", "Rest", "Explosion", "Rock Slide", "Substitute", "Strength"
+            ]
+        }
     },
     {
        "number":75,
@@ -1178,7 +2270,42 @@
           "defense":115,
           "speed":35,
           "special":45
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Tackle"
+                },
+                {
+                    "level": 1,
+                    "move": "Defense Curl"
+                },
+                {
+                    "level": 16,
+                    "move": "Rock Throw"
+                },
+                {
+                    "level": 21,
+                    "move": "Selfdestruct"
+                },
+                {
+                    "level": 29,
+                    "move": "Harden"
+                },
+                {
+                    "level": 36,
+                    "move": "Earthquake"
+                },
+                {
+                    "level": 43,
+                    "move": "Explosion"
+                }
+            ],
+            "tmSet": [
+                "Mega Punch", "Toxic", "Body Slam", "Take Down", "Double-Edge", "Submission", "Counter", "Seismic Toss", "Rage", "Earthquake", "Fissure", "Dig", "Mimic", "Double Team", "Bide", "Metronome", "Selfdestruct", "Fire Blast", "Rest", "Explosion", "Rock Slide", "Substitute", "Strength"
+            ]
+        }
     },
     {
        "number":88,
@@ -1192,7 +2319,46 @@
           "defense":50,
           "speed":25,
           "special":40
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Pound"
+                },
+                {
+                    "level": 1,
+                    "move": "Disable"
+                },
+                {
+                    "level": 30,
+                    "move": "Poison Gas"
+                },
+                {
+                    "level": 33,
+                    "move": "Minimize"
+                },
+                {
+                    "level": 37,
+                    "move": "Sludge"
+                },
+                {
+                    "level": 42,
+                    "move": "Harden"
+                },
+                {
+                    "level": 48,
+                    "move": "Screech"
+                },
+                {
+                    "level": 55,
+                    "move": "Acid Armor"
+                }
+            ],
+            "tmSet": [
+                "Toxic", "Body Slam", "Rage", "Mega Drain", "Thunderbolt", "Thunder", "Mimic", "Double Team", "Bide", "Selfdestruct", "Fire Blast", "Rest", "Explosion", "Substitute"
+            ]
+        }
     },
     {
        "number":58,
@@ -1206,7 +2372,42 @@
           "defense":45,
           "speed":60,
           "special":50
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Bite"
+                },
+                {
+                    "level": 1,
+                    "move": "Roar"
+                },
+                {
+                    "level": 48,
+                    "move": "Ember"
+                },
+                {
+                    "level": 23,
+                    "move": "Leer"
+                },
+                {
+                    "level": 30,
+                    "move": "Take Down"
+                },
+                {
+                    "level": 39,
+                    "move": "Agility"
+                },
+                {
+                    "level": 50,
+                    "move": "Flamethrower"
+                }
+            ],
+            "tmSet": [
+                "Toxic", "Body Slam", "Take Down", "Double-Edge", "Rage", "Dragon Rage", "Dig", "Mimic", "Double Team", "Reflect", "Bide", "Fire Blast", "Swift", "Skull Bash", "Rest", "Substitute"
+            ]
+        }
     },
     {
        "number":130,
@@ -1221,7 +2422,42 @@
           "defense":79,
           "speed":81,
           "special":100
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Splash"
+                },
+                {
+                    "level": 15,
+                    "move": "Tackle"
+                },
+                {
+                    "level": 1,
+                    "move": "Bite"
+                },
+                {
+                    "level": 1,
+                    "move": "Dragon Rage"
+                },
+                {
+                    "level": 1,
+                    "move": "Leer"
+                },
+                {
+                    "level": 1,
+                    "move": "Hydro Pump"
+                },
+                {
+                    "level": 52,
+                    "move": "Hyper Beam"
+                }
+            ],
+            "tmSet": [
+                "Toxic", "Body Slam", "Take Down", "Double-Edge", "Bubble Beam", "Water Gun", "Ice Beam", "Blizzard", "Hyper Beam", "Rage", "Dragon Rage", "Thunderbolt", "Thunder", "Mimic", "Double Team", "Reflect", "Bide", "Fire Blast", "Skull Bash", "Rest", "Substitute", "Surf", "Strength"
+            ]
+        }
     },
     {
        "number":93,
@@ -1236,7 +2472,34 @@
           "defense":45,
           "speed":95,
           "special":115
-       }
+       },
+       "moveset":{
+        "movesByLevel":[
+            {
+                "level": 1,
+                "move": "Lick"
+            },
+            {
+                "level": 1,
+                "move": "Confuse Ray"
+            },
+            {
+                "level": 1,
+                "move": "Night Shade"
+            },
+            {
+                "level": 27,
+                "move": "Hypnosis"
+            },
+            {
+                "level": 35,
+                "move": "Dream Eater"
+            }
+        ],
+        "tmSet": [
+            "Toxic", "Rage", "Mega Drain", "Thunderbolt", "Thunder", "Psychic", "Mimic", "Double Team", "Bide", "Selfdestruct", "Dream Eater", "Rest", "Psywave", "Explosion", "Substitute"
+        ]
+    }
     },
     {
        "number":107,
@@ -1250,7 +2513,42 @@
           "defense":79,
           "speed":76,
           "special":35
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Comet Punch"
+                },
+                {
+                    "level": 1,
+                    "move": "Agility"
+                },
+                {
+                    "level": 33,
+                    "move": "Fire Punch"
+                },
+                {
+                    "level": 38,
+                    "move": "Ice Punch"
+                },
+                {
+                    "level": 43,
+                    "move": "Thunder Punch"
+                },
+                {
+                    "level": 48,
+                    "move": "Mega Punch"
+                },
+                {
+                    "level": 53,
+                    "move": "Counter"
+                }
+            ],
+            "tmSet": [
+                "Mega Punch", "Mega Kick", "Toxic", "Body Slam", "Take Down", "Double-Edge", "Submission", "Counter", "Seismic Toss", "Rage", "Mimic", "Double Team", "Bide", "Metronome", "Swift", "Skull Bash", "Rest", "Substitute", "Strength"
+            ]
+        }
     },
     {
        "number":106,
@@ -1264,7 +2562,42 @@
           "defense":53,
           "speed":87,
           "special":35
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Double Kick"
+                },
+                {
+                    "level": 1,
+                    "move": "Meditate"
+                },
+                {
+                    "level": 33,
+                    "move": "Roling Kick"
+                },
+                {
+                    "level": 38,
+                    "move": "Jump Kick"
+                },
+                {
+                    "level": 43,
+                    "move": "Focus Energy"
+                },
+                {
+                    "level": 48,
+                    "move": "Hi Jump Kick"
+                },
+                {
+                    "level": 53,
+                    "move": "Mega Kick"
+                }
+            ],
+            "tmSet": [
+                "Mega Punch", "Mega Kick", "Toxic", "Body Slam", "Take Down", "Double-Edge", "Submission", "Counter", "Seismic Toss", "Rage", "Mimic", "Double Team", "Bide", "Metronome", "Swift", "Skull Bash", "Rest", "Substitute", "Strength"
+            ]
+        }
     },
     {
        "number":116,
@@ -1278,7 +2611,38 @@
           "defense":70,
           "speed":60,
           "special":70
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Bubble"
+                },
+                {
+                    "level": 19,
+                    "move": "Smokescreen"
+                },
+                {
+                    "level": 24,
+                    "move": "Leer"
+                },
+                {
+                    "level": 30,
+                    "move": "Water Gun"
+                },
+                {
+                    "level": 37,
+                    "move": "Agility"
+                },
+                {
+                    "level": 45,
+                    "move": "Hydro Pump"
+                }
+            ],
+            "tmSet": [
+                "Toxic", "Take Down", "Double-Edge", "Bubble Beam", "Water Gun", "Ice Beam", "Blizzard", "Rage", "Mimic", "Double Team", "Bide", "Swift", "Skull Bash", "Rest", "Substitute", "Surf"
+            ]
+        }
     },
     {
        "number":97,
@@ -1292,7 +2656,46 @@
           "defense":70,
           "speed":67,
           "special":115
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Pound"
+                },
+                {
+                    "level": 1,
+                    "move": "Hypnosis"
+                },
+                {
+                    "level": 1,
+                    "move": "Disable"
+                },
+                {
+                    "level": 1,
+                    "move": "Confusion"
+                },
+                {
+                    "level": 24,
+                    "move": "Headbutt"
+                },
+                {
+                    "level": 33,
+                    "move": "Poison Gas"
+                },
+                {
+                    "level": 37,
+                    "move": "Psychic"
+                },
+                {
+                    "level": 43,
+                    "move": "Meditate"
+                }
+            ],
+            "tmSet": [
+                "Mega Punch", "Mega Kick", "Toxic", "Body Slam", "Take Down", "Double-Edge", "Hyper Beam", "Submission", "Counter", "Seismic Toss", "Rage", "Psychic", "Teleport", "Mimic", "Double Team", "Reflect", "Bide", "Metronome", "Skull Bash", "Dream Eater", "Rest", "Thunder Wave", "Psywave", "Tri Attack", "Substitute", "Flash"
+            ]
+        }
     },
     {
        "number":2,
@@ -1307,7 +2710,50 @@
           "defense":63,
           "speed":60,
           "special":80
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Tackle"
+                },
+                {
+                    "level": 1,
+                    "move": "Growl"
+                },
+                {
+                    "level": 1,
+                    "move": "Leech Seed"
+                },
+                {
+                    "level": 13,
+                    "move": "Vine Whip"
+                },
+                {
+                    "level": 22,
+                    "move": "Poison Powder"
+                },
+                {
+                    "level": 30,
+                    "move": "Razor Leaf"
+                },
+                {
+                    "level": 38,
+                    "move": "Growth"
+                },
+                {
+                    "level": 46,
+                    "move": "Sleep Powder"
+                },
+                {
+                    "level": 54,
+                    "move": "Solar Beam"
+                }
+            ],
+            "tmSet": [
+                "Swords Dance", "Toxic", "Body Slam", "Take Down", "Double-Edge", "Rage", "Mega Drain", "Solar Beam", "Mimic", "Double Team", "Reflect", "Bide", "Rest", "Substitute", "Cut"
+            ]
+        }
     },
     {
        "number":39,
@@ -1322,7 +2768,46 @@
           "defense":20,
           "speed":20,
           "special":25
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Sing"
+                },
+                {
+                    "level": 9,
+                    "move": "Pound"
+                },
+                {
+                    "level": 14,
+                    "move": "Disable"
+                },
+                {
+                    "level": 19,
+                    "move": "Defense Curl"
+                },
+                {
+                    "level": 24,
+                    "move": "Double Slap"
+                },
+                {
+                    "level": 29,
+                    "move": "Rest"
+                },
+                {
+                    "level": 34,
+                    "move": "Body Slam"
+                },
+                {
+                    "level": 39,
+                    "move": "Double-Edge"
+                }
+            ],
+            "tmSet": [
+                "Mega Punch", "Mega Kick", "Toxic", "Body Slam", "Take Down", "Double-Edge", "Bubble Beam", "Water Gun", "Ice Beam", "Blizzard", "Submission", "Counter", "Seismic Toss", "Rage", "Solar Beam", "Thunderbolt", "Thunder", "Psychic", "Teleport", "Mimic", "Double Team", "Reflect", "Bide", "Fire Blast", "Skull Bash", "Rest", "Thunder Wave", "Psywave", "Tri Attack", "Substitute", "Strength", "Flash"
+            ]
+        }
     },
     {
        "number":135,
@@ -1336,7 +2821,58 @@
           "defense":60,
           "speed":130,
           "special":110
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Tackle"
+                },
+                {
+                    "level": 37,
+                    "move": "Tail Whip"
+                },
+                {
+                    "level": 1,
+                    "move": "Quick Attack"
+                },
+                {
+                    "level": 1,
+                    "move": "ThunderShock"
+                },
+                {
+                    "level": 1,
+                    "move": "Sand Attack"
+                },
+                {
+                    "level": 42,
+                    "move": "Double Kick"
+                },
+                {
+                    "level": 48,
+                    "move": "Pin Missile"
+                },
+                {
+                    "level": 40,
+                    "move": "Thunder Wave"
+                },
+                {
+                    "level": 44,
+                    "move": "Agility"
+                },
+                {
+                    "level": 54,
+                    "move": "Thunder"
+                },
+                {
+                    "level": 37,
+                    "move": "Bite"
+                }
+            ],
+            "tmSet": [
+                "Toxic", "Body Slam", "Take Down", "Double-Edge", "Hyper Beam", "Rage", "Thunderbolt", "Thunder", "Mimic", "Double Team", "Reflect", "Bide", "Swift", "Skull Bash", "Rest", "Thunder Wave", "Substitute", "Flash"
+            ]
+        }
     },
     {
        "number":124,
@@ -1351,7 +2887,46 @@
           "defense":35,
           "speed":95,
           "special":95
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Pound"
+                },
+                {
+                    "level": 1,
+                    "move": "Lovely Kiss"
+                },
+                {
+                    "level": 18,
+                    "move": "Lick"
+                },
+                {
+                    "level": 23,
+                    "move": "Double Slap"
+                },
+                {
+                    "level": 31,
+                    "move": "Ice Punch"
+                },
+                {
+                    "level": 39,
+                    "move": "Body Slam"
+                },
+                {
+                    "level": 47,
+                    "move": "Thrash"
+                },
+                {
+                    "level": 58,
+                    "move": "Blizzard"
+                }
+            ],
+            "tmSet": [
+                "Mega Punch", "Mega Kick", "Toxic", "Body Slam", "Take Down", "Double-Edge", "Bubble Beam", "Water Gun", "Ice Beam", "Blizzard", "Hyper Beam", "Submission", "Counter", "Seismic Toss", "Rage", "Psychic", "Teleport", "Mimic", "Double Team", "Reflect", "Bide", "Metronome", "Skull Bash", "Rest", "Psywave", "Substitute"
+            ]
+        }
     },
     {
        "number":140,
@@ -1366,7 +2941,38 @@
           "defense":90,
           "speed":55,
           "special":45
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Scratch"
+                },
+                {
+                    "level": 1,
+                    "move": "Harden"
+                },
+                {
+                    "level": 34,
+                    "move": "Absorb"
+                },
+                {
+                    "level": 39,
+                    "move": "Slash"
+                },
+                {
+                    "level": 44,
+                    "move": "Leer"
+                },
+                {
+                    "level": 49,
+                    "move": "Hydro Pump"
+                }
+            ],
+            "tmSet": [
+                "Toxic", "Body Slam", "Take Down", "Double-Edge", "Bubble Beam", "Water Gun", "Ice Beam", "Blizzard", "Rage", "Mimic", "Double Team", "Reflect", "Bide", "Rest", "Substitute", "Surf"
+            ]
+        }
     },
     {
        "number":141,
@@ -1381,7 +2987,38 @@
           "defense":105,
           "speed":80,
           "special":70
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Scratch"
+                },
+                {
+                    "level": 1,
+                    "move": "Harden"
+                },
+                {
+                    "level": 1,
+                    "move": "Absorb"
+                },
+                {
+                    "level": 39,
+                    "move": "Slash"
+                },
+                {
+                    "level": 46,
+                    "move": "Leer"
+                },
+                {
+                    "level": 53,
+                    "move": "Hydro Pump"
+                }
+            ],
+            "tmSet": [
+                "Razor Wind", "Swords Dance", "Mega Kick", "Toxic", "Body Slam", "Take Down", "Double-Edge", "Bubble Beam", "Water Gun", "Ice Beam", "Blizzard", "Hyper Beam", "Submission", "Seismic Toss", "Rage", "Mimic", "Double Team", "Reflect", "Bide", "Skull Bash", "Rest", "Cut", "Surf"
+            ]
+        }
     },
     {
        "number":64,
@@ -1395,7 +3032,38 @@
           "defense":30,
           "speed":105,
           "special":120
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Teleport"
+                },
+                {
+                    "level": 1,
+                    "move": "Confusion"
+                },
+                {
+                    "level": 1,
+                    "move": "Disable"
+                },
+                {
+                    "level": 27,
+                    "move": "Psybeam"
+                },
+                {
+                    "level": 31,
+                    "move": "Recover"
+                },
+                {
+                    "level": 42,
+                    "move": "Reflect"
+                }
+            ],
+            "tmSet": [
+                "Mega Punch", "Mega Kick", "Toxic", "Body Slam", "Take Down", "Double-Edge", "Submission", "Counter", "Seismic Toss" ,"Rage", "Dig", "Psychic", "Teleport", "Mimic", "Double Team", "Reflect", "Bide", "Metronome", "Skull Bash", "Rest", "Thunder Wave", "Psywave", "Tri Attack", "Substitute", "Flash"
+            ]
+        }
     },
     {
        "number":14,
@@ -1410,7 +3078,26 @@
           "defense":50,
           "speed":35,
           "special":25
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Harden"
+                },
+                {
+                    "level": 1,
+                    "move": "Poison Sting"
+                },
+                {
+                    "level": 1,
+                    "move": "String Shot"
+                }
+            ],
+            "tmSet": [
+            
+            ]
+        }
     },
     {
        "number":115,
@@ -1424,7 +3111,42 @@
           "defense":80,
           "speed":90,
           "special":40
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Comet Punch"
+                },
+                {
+                    "level": 1,
+                    "move": "Rage"
+                },
+                {
+                    "level": 26,
+                    "move": "Bite"
+                },
+                {
+                    "level": 31,
+                    "move": "Tail Whip"
+                },
+                {
+                    "level": 36,
+                    "move": "Mega Punch"
+                },
+                {
+                    "level": 41,
+                    "move": "Leer"
+                },
+                {
+                    "level": 46,
+                    "move": "Dizzy Punch"
+                }
+            ],
+            "tmSet": [
+                "Mega Punch", "Mega Kick", "Toxic", "Body Slam", "Take Down", "Double-Edge", "Bubble Beam", "Water Gun", "Ice Beam", "Blizzard", "Hyper Beam", "Submission", "Counter", "Seismic Toss", "Rage", "Thunderbolt", "Thunder", "Earthquake", "Fissure", "Mimic", "Double Team", "Bide", "Fire Blast", "Skull Bash", "Rest", "Rock Slide", "Substitute", "Surf", "Strength"
+            ]
+        }
     },
     {
        "number":99,
@@ -1438,7 +3160,42 @@
           "defense":115,
           "speed":75,
           "special":50
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Bubble"
+                },
+                {
+                    "level": 1,
+                    "move": "Leer"
+                },
+                {
+                    "level": 1,
+                    "move": "Vice Grip"
+                },
+                {
+                    "level": 25,
+                    "move": "Guillotine"
+                },
+                {
+                    "level": 34,
+                    "move": "Stomp"
+                },
+                {
+                    "level": 42,
+                    "move": "Crabhammer"
+                },
+                {
+                    "level": 49,
+                    "move": "Harden"
+                }
+            ],
+            "tmSet": [
+                "Swords Dance", "Toxic", "Body Slam", "Take Down", "Double-Edge", "Bubble Beam", "Water Gun", "Ice Beam", "Blizzard", "Hyper Beam", "Rage", "Mimic", "Double Team", "Bide", "Rest", "Substitute", "Cut", "Surf", "Strength"
+            ]
+        }
     },
     {
        "number":109,
@@ -1452,7 +3209,42 @@
           "defense":95,
           "speed":35,
           "special":60
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Tackle"
+                },
+                {
+                    "level": 1,
+                    "move": "Smog"
+                },
+                {
+                    "level": 32,
+                    "move": "Sludge"
+                },
+                {
+                    "level": 37,
+                    "move": "Smokescreen"
+                },
+                {
+                    "level": 40,
+                    "move": "Selfdestruct"
+                },
+                {
+                    "level": 45,
+                    "move": "Haze"
+                },
+                {
+                    "level": 48,
+                    "move": "Explosion"
+                }
+            ],
+            "tmSet": [
+                "Toxic", "Rage", "Thunderbolt", "Thunder", "Mimic", "Double Team", "Bide", "Selfdestruct", "Fire Blast", "Rest", "Explosion", "Substitute"
+            ]
+        }
     },
     {
        "number":98,
@@ -1466,7 +3258,42 @@
           "defense":90,
           "speed":50,
           "special":25
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Bubble"
+                },
+                {
+                    "level": 1,
+                    "move": "Leer"
+                },
+                {
+                    "level": 20,
+                    "move": "Vice Grip"
+                },
+                {
+                    "level": 25,
+                    "move": "Guillotine"
+                },
+                {
+                    "level": 30,
+                    "move": "Stomp"
+                },
+                {
+                    "level": 35,
+                    "move": "Crabhammer"
+                },
+                {
+                    "level": 40,
+                    "move": "Harden"
+                }
+            ],
+            "tmSet": [
+                "Swords Dance", "Toxic", "Body Slam", "Take Down", "Double-Edge", "Bubble Beam", "Water Gun", "Ice Beam", "Blizzard", "Rage", "Mimic", "Double Team", "Bide", "Substitute", "Cut", "Surf", "Strength"
+            ]
+        }
     },
     {
        "number":131,
@@ -1481,7 +3308,46 @@
           "defense":80,
           "speed":60,
           "special":95
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Water Gun"
+                },
+                {
+                    "level": 1,
+                    "move": "Growl"
+                },
+                {
+                    "level": 16,
+                    "move": "Sing"
+                },
+                {
+                    "level": 20,
+                    "move": "Mist"
+                },
+                {
+                    "level": 25,
+                    "move": "Body Slam"
+                },
+                {
+                    "level": 31,
+                    "move": "Confuse Ray"
+                },
+                {
+                    "level": 38,
+                    "move": "Ice Beam"
+                },
+                {
+                    "level": 46,
+                    "move": "Hydro Pump"
+                }
+            ],
+            "tmSet": [
+                "Toxic", "Horn Drill", "Body Slam", "Take Down", "Double-Edge", "Bubble Beam", "Water Gun", "Ice Beam", "Blizzard", "Hyper Beam", "Rage", "Solar Beam", "Dragon Rage", "Thunderbolt", "Thunder", "Psychic", "Mimic", "Double Team", "Reflect", "Bide", "Skull Bash", "Rest", "Psywave", "Substitute", "Surf", "Strength"
+            ]
+        }
     },
     {
        "number":108,
@@ -1495,7 +3361,42 @@
           "defense":75,
           "speed":30,
           "special":60
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Wrap"
+                },
+                {
+                    "level": 1,
+                    "move": "Supersonic"
+                },
+                {
+                    "level": 7,
+                    "move": "Stomp"
+                },
+                {
+                    "level": 15,
+                    "move": "Disable"
+                },
+                {
+                    "level": 23,
+                    "move": "Defense Curl"
+                },
+                {
+                    "level": 31,
+                    "move": "Slam"
+                },
+                {
+                    "level": 39,
+                    "move": "Screech"
+                }
+            ],
+            "tmSet": [
+                "Mega Punch", "Swords Dance", "Mega Kick", "Toxic", "Body Slam", "Take Down", "Double-Edge", "Bubble Beam", "Water Gun", "Ice Beam", "Blizzard", "Hyper Beam", "Submission", "Counter", "Seismic Toss", "Rage", "Thunderbolt", "Thunder", "Earthquake", "Fissure", "Mimic", "Double Team", "Bide", "Fire Blast", "Skull Bash", "Rest", "Substitute", "Cut", "Surf", "Strength"
+            ]
+        }
     },
     {
        "number":68,
@@ -1509,7 +3410,38 @@
           "defense":80,
           "speed":55,
           "special":65
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Karate Chop"
+                },
+                {
+                    "level": 1,
+                    "move": "Low Kick"
+                },
+                {
+                    "level": 1,
+                    "move": "Leer"
+                },
+                {
+                    "level": 36,
+                    "move": "Focus Energy"
+                },
+                {
+                    "level": 44,
+                    "move": "Seismic Toss"
+                },
+                {
+                    "level": 52,
+                    "move": "Submission"
+                }
+            ],
+            "tmSet": [
+                "Mega Punch", "Mega Kick", "Toxic", "Body Slam", "Take Down", "Double-Edge", "Hyper Beam", "Submission", "Counter", "Seismic Toss", "Rage", "Earthquake", "Fissure", "Dig", "Mimic", "Double Team", "Bide", "Metronome", "Fire Blast", "Skull Bash", "Rest", "Rock Slide", "Substitute", "Strength"
+            ]
+        }
     },
     {
        "number":67,
@@ -1523,7 +3455,38 @@
           "defense":70,
           "speed":45,
           "special":50
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Karate Chop"
+                },
+                {
+                    "level": 1,
+                    "move": "Low Kick"
+                },
+                {
+                    "level": 1,
+                    "move": "Leer"
+                },
+                {
+                    "level": 36,
+                    "move": "Focus Energy"
+                },
+                {
+                    "level": 44,
+                    "move": "Seismic Toss"
+                },
+                {
+                    "level": 52,
+                    "move": "Submission"
+                }
+            ],
+            "tmSet": [
+                "Mega Punch", "Mega Kick", "Toxic", "Body Slam", "Take Down", "Double-Edge", "Submission", "Counter", "Seismic Toss", "Rage", "Earthquake", "Fissure", "Dig", "Mimic", "Double Team", "Bide", "Metronome", "Fire Blast", "Skull Bash", "Rest", "Rock Slide", "Substitute", "Strength"
+            ]
+        }
     },
     {
        "number":66,
@@ -1537,7 +3500,38 @@
           "defense":50,
           "speed":35,
           "special":35
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Karate Chop"
+                },
+                {
+                    "level": 20,
+                    "move": "Low Kick"
+                },
+                {
+                    "level": 25,
+                    "move": "Leer"
+                },
+                {
+                    "level": 32,
+                    "move": "Focus Energy"
+                },
+                {
+                    "level": 39,
+                    "move": "Seismic Toss"
+                },
+                {
+                    "level": 46,
+                    "move": "Submission"
+                }
+            ],
+            "tmSet": [
+                "Mega Punch", "Mega Kick", "Toxic", "Body Slam", "Take Down", "Double-Edge", "Submission", "Counter", "Seismic Toss", "Rage", "Earthquake", "Fissure", "Dig", "Mimic", "Double Team", "Bide", "Metronome", "Fire Blast", "Skull Bash", "Rest", "Rock Slide", "Substitute", "Strength"
+            ]
+        }
     },
     {
        "number":129,
@@ -1551,7 +3545,22 @@
           "defense":55,
           "speed":80,
           "special":20
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Splash"
+                },
+                {
+                    "level": 15,
+                    "move": "Tackle"
+                }
+            ],
+            "tmSet": [
+            
+            ]
+        }
     },
     {
        "number":126,
@@ -1565,7 +3574,42 @@
           "defense":57,
           "speed":93,
           "special":85
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Ember"
+                },
+                {
+                    "level": 36,
+                    "move": "Leer"
+                },
+                {
+                    "level": 39,
+                    "move": "Confuse Ray"
+                },
+                {
+                    "level": 43,
+                    "move": "Fire Punch"
+                },
+                {
+                    "level": 48,
+                    "move": "Smokescreen"
+                },
+                {
+                    "level": 52,
+                    "move": "Smog"
+                },
+                {
+                    "level": 55,
+                    "move": "Flamethrower"
+                }
+            ],
+            "tmSet": [
+                "Mega Punch", "Mega Kick", "Toxic", "Body Slam", "Take Down", "Double-Edge", "Hyper Beam", "Submission", "Counter", "Seismic Toss", "Rage", "Psychic", "Teleport", "Mimic", "Double Team", "Bide", "Metronome", "Fire Blast", "Skull Bash", "Rest", "Psywave", "Substitute", "Strength"
+            ]
+        }
     },
     {
        "number":81,
@@ -1580,7 +3624,42 @@
           "defense":70,
           "speed":45,
           "special":95
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Tackle"
+                },
+                {
+                    "level": 21,
+                    "move": "Sonic Boom"
+                },
+                {
+                    "level": 25,
+                    "move": "Thundershock"
+                },
+                {
+                    "level": 29,
+                    "move": "Supersonic"
+                },
+                {
+                    "level": 35,
+                    "move": "Thunder Wave"
+                },
+                {
+                    "level": 41,
+                    "move": "Swift"
+                },
+                {
+                    "level": 47,
+                    "move": "Screech"
+                }
+            ],
+            "tmSet": [
+                "Toxic", "Take Down", "Double-Edge", "Rage", "Thunderbolt", "Thunder", "Teleport", "Mimic", "Double Team", "Reflect", "Bide", "Swift", "Rest", "Thunder Wave", "Substitute", "Flash"
+            ]
+        }
     },
     {
        "number":82,
@@ -1595,7 +3674,42 @@
           "defense":95,
           "speed":70,
           "special":120
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Tackle"
+                },
+                {
+                    "level": 1,
+                    "move": "Sonic Boom"
+                },
+                {
+                    "level": 1,
+                    "move": "Thundershock"
+                },
+                {
+                    "level": 29,
+                    "move": "Supersonic"
+                },
+                {
+                    "level": 38,
+                    "move": "Thunder Wave"
+                },
+                {
+                    "level": 46,
+                    "move": "Swift"
+                },
+                {
+                    "level": 54,
+                    "move": "Screech"
+                }
+            ],
+            "tmSet": [
+                "Toxic", "Take Down", "Double-Edge", "Hyper Beam", "Rage", "Thunderbolt", "Thunder", "Teleport", "Mimic", "Double Team", "Reflect", "Bide", "Swift", "Rest", "Thunder Wave", "Substitute", "Flash"
+            ]
+        }
     },
     {
        "number":56,
@@ -1609,7 +3723,42 @@
           "defense":35,
           "speed":70,
           "special":35
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Scratch"
+                },
+                {
+                    "level": 1,
+                    "move": "Leer"
+                },
+                {
+                    "level": 15,
+                    "move": "Karate Chop"
+                },
+                {
+                    "level": 21,
+                    "move": "Fury Swipes"
+                },
+                {
+                    "level": 27,
+                    "move": "Focus Energy"
+                },
+                {
+                    "level": 33,
+                    "move": "Seismic Toss"
+                },
+                {
+                    "level": 39,
+                    "move": "Thrash"
+                }
+            ],
+            "tmSet": [
+                "Mega Punch", "Mega Kick", "Toxic", "Body Slam", "Take Down", "Double-Edge", "Pay Day", "Submission", "Counter", "Seismic Toss", "Rage", "Thunderbolt", "Thunder", "Dig", "Mimic", "Double Team", "Bide", "Metronome", "Swift", "Skull Bash", "Rest", "Rock Slide", "Substitute", "Strength"
+            ]
+        }
     },
     {
        "number":105,
@@ -1623,7 +3772,42 @@
           "defense":110,
           "speed":45,
           "special":50
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Growl"
+                },
+                {
+                    "level": 1,
+                    "move": "Bone Club"
+                },
+                {
+                    "level": 1,
+                    "move": "Leer"
+                },
+                {
+                    "level": 1,
+                    "move": "Focus Energy"
+                },
+                {
+                    "level": 41,
+                    "move": "Thrash"
+                },
+                {
+                    "level": 48,
+                    "move": "Bonemerang"
+                },
+                {
+                    "level": 55,
+                    "move": "Rage"
+                }
+            ],
+            "tmSet": [
+                "Mega Punch", "Mega Kick", "Toxic", "Body Slam", "Take Down", "Double-Edge", "Bubble Beam", "Water Gun", "Ice Beam", "Blizzard", "Hyper Beam", "Submission", "Counter", "Seismic Toss", "Rage", "Earthquake", "Fissure", "Dig", "Mimic", "Double Team", "Bide", "Fire Blast", "Skull Bash", "Rest", "Substitute", "Strength"
+            ]
+        }
     },
     {
        "number":52,
@@ -1637,7 +3821,42 @@
           "defense":35,
           "speed":90,
           "special":40
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Scratch"
+                },
+                {
+                    "level": 1,
+                    "move": "Growl"
+                },
+                {
+                    "level": 12,
+                    "move": "Bite"
+                },
+                {
+                    "level": 17,
+                    "move": "Pay Day"
+                },
+                {
+                    "level": 24,
+                    "move": "Screech"
+                },
+                {
+                    "level": 33,
+                    "move": "Fury Swipes"
+                },
+                {
+                    "level": 44,
+                    "move": "Slash"
+                }
+            ],
+            "tmSet": [
+                "Toxic", "Body Slam", "Take Down", "Double-Edge", "Bubble Beam", "Water Gun", "Pay Day", "Rage", "Thunderbolt", "Thunder", "Mimic", "Double Team", "Bide", "Swift", "Skull Bash", "Rest", "Substitute"
+            ]
+        }
     },
     {
        "number":11,
@@ -1651,7 +3870,26 @@
           "defense":55,
           "speed":30,
           "special":25
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Harden"
+                },
+                {
+                    "level": 1,
+                    "move": "Tackle"
+                },
+                {
+                    "level": 1,
+                    "move": "String Shot"
+                }
+            ],
+            "tmSet": [
+            
+            ]
+        }
     },
     {
        "number":151,
@@ -1665,7 +3903,34 @@
           "defense":100,
           "speed":100,
           "special":100
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Pound"
+                },
+                {
+                    "level": 10,
+                    "move": "Transform"
+                },
+                {
+                    "level": 20,
+                    "move": "Mega Punch"
+                },
+                {
+                    "level": 30,
+                    "move": "Metronome"
+                },
+                {
+                    "level": 40,
+                    "move": "Psychic"
+                }
+            ],
+            "tmSet": [
+                "Mega Punch", "Razor Wind", "Swords Dance", "Whirlwind", "Mega Kick", "Toxic", "Horn Drill", "Body Slam", "Take Down", "Double-Edge", "Bubble Beam", "Water Gun", "Ice Beam", "Blizzard", "Hyper Beam", "Pay Day", "Submission", "Counter", "Seismic Toss", "Rage", "Mega Drain", "Solar Beam", "Dragon Rage", "Thunderbolt", "Thunder", "Earthquake", "Fissure", "Dig", "Psychic", "Teleport", "Mimic", "Double Team", "Reflect", "Bide", "Metronome", "Selfdestruct", "Egg Bomb", "Fire Blast", "Swift", "Skull Bash", "Softboiled", "Dream Eater", "Sky Attack", "Rest", "Thunder Wave", "Psywave", "Explosion", "Rock Slide", "Tri Attack", "Substitute", "Cut", "Fly", "Surf", "Strength", "Flash"
+            ]
+        }
     },
     {
        "number":150,
@@ -1679,7 +3944,46 @@
           "defense":90,
           "speed":130,
           "special":154
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Confusion"
+                },
+                {
+                    "level": 1,
+                    "move": "Disable"
+                },
+                {
+                    "level": 1,
+                    "move": "Swift"
+                },
+                {
+                    "level": 1,
+                    "move": "Psychic"
+                },
+                {
+                    "level": 63,
+                    "move": "Barrier"
+                },
+                {
+                    "level": 70,
+                    "move": "Recover"
+                },
+                {
+                    "level": 75,
+                    "move": "Mist"
+                },
+                {
+                    "level": 81,
+                    "move": "Amnesia"
+                }
+            ],
+            "tmSet": [
+                "Mega Punch", "Mega Kick", "Toxic", "Body Slam", "Take Down", "Double-Edge", "Bubble Beam", "Water Gun", "Ice Beam", "Blizzard", "Hyper Beam", "Pay Day", "Submission", "Counter", "Seismic Toss", "Rage", "Solar Beam", "Thunderbolt", "Thunder", "Psychic", "Teleport", "Mimic", "Double Team", "Reflect", "Bide", "Metronome", "Selfdestruct", "Fire Blast", "Skull Bash", "Rest", "Thunder Wave", "Psywave", "Tri Attack", "Substitute", "Strength", "Flash"
+            ]
+        }
     },
     {
        "number":146,
@@ -1694,7 +3998,34 @@
           "defense":90,
           "speed":90,
           "special":125
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Peck"
+                },
+                {
+                    "level": 1,
+                    "move": "Fire Spin"
+                },
+                {
+                    "level": 51,
+                    "move": "Leer"
+                },
+                {
+                    "level": 55,
+                    "move": "Agility"
+                },
+                {
+                    "level": 60,
+                    "move": "Sky Attack"
+                }
+            ],
+            "tmSet": [
+                "Razor Wind", "Whirlwind", "Toxic", "Take Down", "Double-Edge", "Hyper Beam", "Rage", "Mimic", "Reflect", "Bide", "Fire Blast", "Swift", "Sky Attack", "Rest", "Substitute", "Fly"
+            ]
+        }
     },
     {
        "number":122,
@@ -1709,7 +4040,38 @@
           "defense":65,
           "speed":90,
           "special":100
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Confusion"
+                },
+                {
+                    "level": 1,
+                    "move": "Barrier"
+                },
+                {
+                    "level": 23,
+                    "move": "Light Screen"
+                },
+                {
+                    "level": 31,
+                    "move": "Double Slap"
+                },
+                {
+                    "level": 39,
+                    "move": "Meditate"
+                },
+                {
+                    "level": 47,
+                    "move": "Substitute"
+                }
+            ],
+            "tmSet": [
+                "Mega Punch", "Mega Kick", "Toxic", "Body Slam", "Take Down", "Double-Edge", "Hyper Beam", "Submission", "Counter", "Seismic Toss", "Rage", "Solar Beam", "Thunderbolt", "Thunder", "Psychic", "Teleport", "Mimic", "Double Team", "Reflect", "Bide", "Metronome", "Skull Bash", "Rest", "Thunder Wave", "Psywave", "Substitute", "Flash"
+            ]
+        }
     },
     {
        "number":89,
@@ -1723,7 +4085,46 @@
           "defense":75,
           "speed":50,
           "special":65
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Pound"
+                },
+                {
+                    "level": 1,
+                    "move": "Disable"
+                },
+                {
+                    "level": 1,
+                    "move": "Poison Gas"
+                },
+                {
+                    "level": 33,
+                    "move": "Minimize"
+                },
+                {
+                    "level": 37,
+                    "move": "Sludge"
+                },
+                {
+                    "level": 45,
+                    "move": "Harden"
+                },
+                {
+                    "level": 53,
+                    "move": "Screech"
+                },
+                {
+                    "level": 60,
+                    "move": "Acid Armor"
+                }
+            ],
+            "tmSet": [
+                "Toxic", "Body Slam", "Hyper Beam", "Rage", "Mega Drain", "Thunderbolt", "Thunder", "Mimic", "Double Team", "Bide", "Selfdestruct", "Fire Blast", "Rest", "Explosion", "Substitute"
+            ]
+        }
     },
     {
        "number":34,
@@ -1738,7 +4139,50 @@
           "defense":77,
           "speed":85,
           "special":75
-       }
+       },
+       "moveset":{
+            "movesByLevel":[
+                {
+                    "level": 1,
+                    "move": "Tackle"
+                },
+                {
+                    "level": 1,
+                    "move": "Horn Attack"
+                },
+                {
+                    "level": 1,
+                    "move": "Poison Sting"
+                },
+                {
+                    "level": 1,
+                    "move": "Thrash"
+                },
+                {
+                    "level": 43,
+                    "move": "Double Kick"
+                },
+                {
+                    "level": 21,
+                    "move": "Focus Energy"
+                },
+                {
+                    "level": 29,
+                    "move": "Fury Attack"
+                },
+                {
+                    "level": 36,
+                    "move": "Horn Drill"
+                },
+                {
+                    "level": 1,
+                    "move": "Leer"
+                }
+            ],
+            "tmSet": [
+                "Mega Punch", "Mega Kick", "Toxic", "Horn Drill", "Body Slam", "Take Down", "Double-Edge", "Bubble Beam", "Water Gun", "Ice Beam", "Blizzard", "Hyper Beam", "Pay Day", "Submission", "Counter", "Seismic Toss", "Rage", "Thunderbolt", "Thunder", "Earthquake", "Fissure", "Mimic", "Double Team", "Reflect", "Bide", "Fire Blast", "Skull Bash", "Rest", "Rock Slide", "Substitute", "Surf", "Strength"
+            ]
+        }
     },
     {
        "number":31,
