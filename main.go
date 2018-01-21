@@ -4,24 +4,20 @@ import (
 	"encoding/csv"
 	"fmt"
 	"log"
-	"io/ioutil"
+	//"io/ioutil"
 	"os"
 
 	"github.com/SiebertSchoutteten/poke-battle/calculator"
 )
 
 func main() {
-	log.SetOutput(ioutil.Discard)
+	//log.SetOutput(ioutil.Discard)
 	calculator := calculator.NewCalculator()
 
-	poke1 := calculator.GetRandomPokemon()
-	poke3 := calculator.GetRandomPokemon()
-	poke2 := calculator.GetRandomPokemon()
-	poke4 := calculator.GetRandomPokemon()
-	calculator.Fight(poke4, poke2)
-	log.Println(poke3, poke1)
+	//calculator.Fight(poke4, poke2)
+	//log.Println(poke3, poke1)
 	actualcombats := [][]string{}
-	for i := 0; i < 1250000; i++ {
+	for i := 0; i < 1; i++ {
 		poke1 := calculator.GetRandomPokemon()
 		poke2 := calculator.GetRandomPokemon()
 		winner := calculator.Fight(poke1, poke2)
@@ -33,14 +29,14 @@ func main() {
 			poke1wins = true
 		}
 		if i > 1000000{
-		combat := []string{poke1.Name(), poke2.Name(), fmt.Sprintf("%d", leveldif), moves1[0], moves1[1], moves1[2], moves1[3], moves2[0], moves2[1], moves2[2], moves2[3], fmt.Sprintf("%t", poke1wins)}
-		//combat := []string{fmt.Sprintf("%s",poke1.HotEncoding()), fmt.Sprintf("%s",poke2.HotEncoding()), fmt.Sprintf("%d", leveldif),fmt.Sprintf("%t", poke1wins)}
-		actualcombats = append(actualcombats, combat)
-	}
+			combat := []string{poke1.Name(), poke2.Name(), fmt.Sprintf("%d", leveldif), moves1[0], moves1[1], moves1[2], moves1[3], moves2[0], moves2[1], moves2[2], moves2[3], fmt.Sprintf("%t", poke1wins)}
+			//combat := []string{fmt.Sprintf("%s",poke1.HotEncoding()), fmt.Sprintf("%s",poke2.HotEncoding()), fmt.Sprintf("%d", leveldif),fmt.Sprintf("%t", poke1wins)}
+			actualcombats = append(actualcombats, combat)
+		}
 
 	}
-	writeNewCombats(actualcombats)
-	log.Println(poke4.HotEncoding())
+	//writeNewCombats(actualcombats)
+	//log.Println(poke4.HotEncoding())
 	//calculator.GetRandomSpecificPokemon(25,81)
 }
 

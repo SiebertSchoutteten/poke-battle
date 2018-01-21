@@ -43,8 +43,8 @@ func (c *Calculator) readPokemon() {
 	for i := 0; i < len(pokes); i++ {
 		pokes[i].HotEncoding = hotEncodedList[pokes[i].Name]
 		poke := &pokes[i]
-		//log.Println(poke)
-		pokemap[poke.Pokenumber] = poke
+		//log.Println(poke.Number)
+		pokemap[poke.Number] = poke
 	}
 	c.pokemon = pokemap
 }
@@ -79,7 +79,7 @@ func (c *Calculator) readEffects() {
 	}
 	typemap := make(map[string]float64)
 	for i := 0; i < len(typeEffects); i++ {
-		log.Println(fmt.Sprintf("%s-%s", typeEffects[i].Attack, typeEffects[i].Defend))
+		//log.Println(fmt.Sprintf("%s-%s", typeEffects[i].Attack, typeEffects[i].Defend))
 		typeformat := fmt.Sprintf("%s-%s", typeEffects[i].Attack, typeEffects[i].Defend)
 		typemap[typeformat] = typeEffects[i].Effectiveness
 	}
