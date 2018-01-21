@@ -287,46 +287,43 @@ func (c *Calculator) generateMoveset(poke *PokeBase, level int) [4]*Move {
 	return moves
 }
 
+// Returns whether poke1 attacks first or not
+func (c *Calculator) poke1First(poke1Speed, poke2Speed, poke1Priority, poke2Priority int) bool{
+
+		// The pokemon that selected the move with the highest priority will attack first
+		if poke1Priority > poke2Priority {
+			return true
+		}
+		if poke2Priority > poke1Priority{
+			return false
+		}
+		//  if both moves have the same priority, the pokemon with the higher speed will attack first
+		if poke1Speed > poke2Speed {
+			return true
+		}
+		if poke2Speed > poke1Speed {
+			return false
+		}
+		// if both moves have the same priority and both pokemon have the same speed
+		// it is determined randomly who will attack first
+		if random(0, 1) == 0 {
+			return true
+		}
+
+		return false
+}
 // Fight simulates a fight between poke1 and poke2
 func (c *Calculator) Fight(poke1 *Pokemon, poke2 *Pokemon) *Pokemon {
 	poke1dead := false
 	poke2dead := false
 	// As long as one of the pokemon hasnt reached 0 HP the fight isnt over yet
 	for {
-
-		done := false
-		poke1first := false
 		//let poke1 and poke2 choose a random move before fighting
 		poke1move := poke1.moveset[random(0, 3)]
 		poke2move := poke2.moveset[random(0, 3)]
 
-		//If chosen moves have a different priority, they attack earlier or later
-		if poke1move.Priority > poke2move.Priority {
-			poke1first = true
-			done = true
-		}
-
-		if (poke2move.Priority > poke1move.Priority) && !done {
-			poke1first = false
-			done = true
-		}
-		// if both moves have the same priority, the pokemon with the higher speed will attack first
-		if poke1.stats.Speed > poke2.stats.Speed && !done {
-			poke1first = true
-			done = true
-		}
-
-		if poke2.stats.Speed > poke1.stats.Speed && !done {
-			poke1first = false
-			done = true
-		}
-
-		//if both moves have the same priority and both pokemon have the same speed
-		//it is determined randomly who will attack first
-		if random(0, 1) == 0 && !done {
-			poke1first = true
-			done = true
-		}
+		//it is then decided in this method which pokemon will attack first
+		poke1first := c.poke1First(poke1.Speed(), poke2.Speed(),poke1move.Priority, poke2move.Priority)
 
 		effectiveness1 := c.getTypeEffectiveness(poke1, poke2move)
 		effectiveness2 := c.getTypeEffectiveness(poke2, poke1move)

@@ -21,7 +21,7 @@ type Pokemon struct {
 	stats BaseStats
 }
 
-// Attack attacks and returns true if the enemy pokemon dies
+// Attack attacks and returns true if the pokemon dies
 func (poke *Pokemon) Attack(enemyMove *Move, enemy *Pokemon, effectiveness float64) bool {
 	log.Printf("%s uses %s", enemy.base.Name, enemyMove.Name)
 	var attack, defense int
@@ -37,12 +37,7 @@ func (poke *Pokemon) Attack(enemyMove *Move, enemy *Pokemon, effectiveness float
 		attack = enemy.stats.Special
 		defense = poke.stats.Special
 	case "status":
-		poke.stats.Hp--
-		if poke.stats.Hp <= 0 {
-			log.Printf("%s dies", poke.base.Name)
-			return true
-		}
-		return false
+		
 	}
 	//log.Println("base power:", enemyMove.Power)
 	//log.Println("attacck: ", attack)
@@ -102,6 +97,10 @@ func (poke *Pokemon) Stats() []int {
 // Number is a methodical function
 func (poke *Pokemon) Number() string {
 	return fmt.Sprintf("%d", poke.base.Number)
+}
+// Speed returns the pokemons speed
+func (poke *Pokemon) Speed() int{
+	return poke.stats.Speed
 }
 
 // HotEncoding returns the HotEncoding of a pokemon
