@@ -314,8 +314,7 @@ func (c *Calculator) poke1First(poke1Speed, poke2Speed, poke1Priority, poke2Prio
 }
 // Fight simulates a fight between poke1 and poke2
 func (c *Calculator) Fight(poke1 *Pokemon, poke2 *Pokemon) *Pokemon {
-	poke1dead := false
-	poke2dead := false
+
 	// As long as one of the pokemon hasnt reached 0 HP the fight isnt over yet
 	for {
 		//let poke1 and poke2 choose a random move before fighting
@@ -325,31 +324,132 @@ func (c *Calculator) Fight(poke1 *Pokemon, poke2 *Pokemon) *Pokemon {
 		//it is then decided in this method which pokemon will attack first
 		poke1first := c.poke1First(poke1.Speed(), poke2.Speed(),poke1move.Priority, poke2move.Priority)
 
+		//the effectiveness of each move is decided from the type of the move and the type of the defending pokemon
 		effectiveness1 := c.getTypeEffectiveness(poke1, poke2move)
 		effectiveness2 := c.getTypeEffectiveness(poke2, poke1move)
-		log.Println(effectiveness2, " / ", poke2.base.Types, poke1move.MoveType)
-		log.Println(effectiveness1, " / ", poke1.base.Types, poke2move.MoveType)
-		//attacking happens here
+		//log.Println(effectiveness2, " / ", poke2.base.Types, poke1move.MoveType)
+		//log.Println(effectiveness1, " / ", poke1.base.Types, poke2move.MoveType)
+		
+		// attacking happens here
+		// if an attack returns true it means the defending pokemon died and the attacking pokemon wil be returned as winner
+		// if a pokemon misses its attack, nothing happens
 		if poke1first {
-			poke2dead = poke2.Attack(poke1move, poke1, effectiveness2)
-			if poke2dead {
-				return poke1
+			// Pokemon 1 attacks first
+			if c.isPokemonAbleToAttack(poke1){
+				if c.doesMoveHit(poke1move,poke2.accuracyBoost,poke1.evasivenessBoost){
+					// Pokemon 1's attack strikes
+					if c.Attack(poke1move, poke2, poke1, effectiveness2){
+						return poke1
+					}
+				}else{
+					// Pokemon 1's attack misses
+					log.Println("Attack Missed")
+				}
 			}
-			poke1dead = poke1.Attack(poke2move, poke2, effectiveness1)
-			if poke1dead {
-				return poke2
+			// Pokemon 2 attacks second
+			if c.isPokemonAbleToAttack(poke2){
+				if c.doesMoveHit(poke2move, poke1.accuracyBoost, poke2.evasivenessBoost){
+					if c.Attack(poke2move, poke1, poke2, effectiveness1){
+						return poke2
+					}
+				}else{
+					// Pokemon 2's attack misses
+					log.Println("Attack Missed")
+				}
 			}
 		} else {
-			poke1dead = poke1.Attack(poke2move, poke2, effectiveness2)
-			if poke1dead {
-				return poke2
+			// Pokemon 2 attacks first
+			if c.isPokemonAbleToAttack(poke2){
+				if c.doesMoveHit(poke2move, poke1.accuracyBoost, poke2.evasivenessBoost){
+					if c.Attack(poke2move, poke1, poke2, effectiveness1){
+						return poke2
+					}
+				}else{
+					// Pokemon 2's attack misses
+					log.Println("Attack Missed")
+				}
 			}
-			poke2dead = poke2.Attack(poke1move, poke1, effectiveness1)
-			if poke2dead {
-				return poke1
+			// Pokemon 1 attacks second
+			if c.isPokemonAbleToAttack(poke1){
+				if c.doesMoveHit(poke1move,poke2.accuracyBoost,poke1.evasivenessBoost){
+					// Pokemon 1's attack strikes
+					if c.Attack(poke1move, poke2, poke1, effectiveness2){
+						return poke1
+					}
+				}else{
+					// Pokemon 1's attack misses
+					log.Println("Attack Missed")
+				}
 			}
 		}
 	}
+}
+// Effect handles the effect that comes with an attack causing one of the following effects:
+// Effects handled: 
+func (c *Calculator) Effect(movename string, poke, enemy *Pokemon){
+
+}
+// Attack attacks and returns true if the pokemon dies
+func (c *Calculator) Attack(enemyMove *Move, poke, enemy *Pokemon, effectiveness float64) bool {
+	log.Printf("%s uses %s", enemy.base.Name, enemyMove.Name)
+	var attack, defense int
+	damage := (2 * enemy.level) / 5
+	//log.Println("step 1: ", damage)
+	damage += 2
+	//log.Println("step 2: ", damage)
+	switch enemyMove.Category {
+	case "physical":
+		attack = enemy.stats.Attack
+		defense = poke.stats.Defense
+	case "special":
+		attack = enemy.stats.Special
+		defense = poke.stats.Special
+	case "status":
+		attack = 4
+		defense = 2
+	}
+	//log.Println("base power:", enemyMove.Power)
+	//log.Println("attacck: ", attack)
+	//log.Println("defe: ", defense)
+	ada := float64(attack) / float64(defense)
+	log.Println("Power: ", enemyMove.Power)
+	damage *= int(float64(enemyMove.Power) * ada)
+	//log.Println("step 3: ", damage)
+	damage /= 50
+	//log.Println("step 4: ", damage)
+	damage += 2
+	//log.Println("step 5: ", damage)
+	//modifier = random * stab * type effect
+
+	//random is between 0.85 and 1
+	Mrandom := float64(random(218, 255))
+	Mrandom /= 255
+
+	//stab
+	Mstab := 1.0
+	for i := 0; i < len(enemy.base.Types); i++ {
+		if enemy.base.Types[i] == string(enemyMove.MoveType) {
+			Mstab = 1.5
+		}
+	}
+	log.Println("Stab: ", Mstab)
+	// type effect was given in param
+	log.Println("effectivness: ", effectiveness)
+	// So modifier is calculated
+	modifier := Mrandom * Mstab *effectiveness
+	log.Println("modifier: ", modifier)
+
+	//modified damage calculation
+	damage = int(modifier * float64(damage))
+	//log.Println("step 6: ", damage)
+	log.Println("actual damage: ", damage)
+	poke.stats.Hp -= damage
+	if poke.stats.Hp <= 0 {
+		log.Printf("%s dies", poke.base.Name)
+		return true
+	}
+	log.Printf("%s has %d hp left", poke.base.Name, poke.stats.Hp)
+	return false
 }
 func (c *Calculator) getTypeEffectiveness(poke *Pokemon, move *Move) float64 {
 	effectiveness := c.typeEffects[string(move.MoveType)+"-"+poke.base.Types[0]]
@@ -360,6 +460,17 @@ func (c *Calculator) getTypeEffectiveness(poke *Pokemon, move *Move) float64 {
 
 	return effectiveness
 }
+func (c *Calculator) isPokemonAbleToAttack(poke *Pokemon) bool {
+	if poke.status == Asleep || poke.status == FrozenSolid || poke.status == Flinched{
+		return false
+	}
+	if poke.status == Paralyzed{
+		if random(1,100) > 75 {
+			return false
+		}
+	}
+	return true
+}
 func (c *Calculator) doesMoveHit(move *Move, selfAccuracyStage, enemyEvasionStage int) bool {
 	//always hits
 	if move.Name == "swift" {
@@ -368,6 +479,14 @@ func (c *Calculator) doesMoveHit(move *Move, selfAccuracyStage, enemyEvasionStag
 	// 4, 1
 	selfMultiplier := c.getStageMultiplier(true, selfAccuracyStage)
 	enemyMultiplier := c.getStageMultiplier(false, enemyEvasionStage)
+	
+	//1/256 glitch if multipliers are unchanged 
+	if selfMultiplier == 1 && enemyMultiplier == 1 {
+		if random(1,256) == 256{
+			log.Println("glitch")
+			return false
+		}
+	}
 
 	hitratio := (selfMultiplier * enemyMultiplier) * move.Accuracy
 	if hitratio >= 1 {

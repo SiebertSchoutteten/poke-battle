@@ -1,6 +1,6 @@
 package calculator
 
-import "log"
+//import "log"
 import "fmt"
 
 // Pokemon is short for Pocket Monster
@@ -21,58 +21,7 @@ type Pokemon struct {
 	stats BaseStats
 }
 
-// Attack attacks and returns true if the pokemon dies
-func (poke *Pokemon) Attack(enemyMove *Move, enemy *Pokemon, effectiveness float64) bool {
-	log.Printf("%s uses %s", enemy.base.Name, enemyMove.Name)
-	var attack, defense int
-	damage := (2 * enemy.level) / 5
-	//log.Println("step 1: ", damage)
-	damage += 2
-	//log.Println("step 2: ", damage)
-	switch enemyMove.Category {
-	case "physical":
-		attack = enemy.stats.Attack
-		defense = poke.stats.Defense
-	case "special":
-		attack = enemy.stats.Special
-		defense = poke.stats.Special
-	case "status":
-		
-	}
-	//log.Println("base power:", enemyMove.Power)
-	//log.Println("attacck: ", attack)
-	//log.Println("defe: ", defense)
-	ada := float64(attack) / float64(defense)
-	damage *= int(float64(enemyMove.Power) * ada)
-	//log.Println("step 3: ", damage)
-	damage /= 50
-	//log.Println("step 4: ", damage)
-	damage += 2
-	//log.Println("step 5: ", damage)
-	//modifier = random * stab * type effect
-	//random is between 0.85 and 1
-	modifier := float64(random(218, 255))
-	modifier /= 255
-	//stab
-	for i := 0; i < len(enemy.base.Types); i++ {
-		if enemy.base.Types[i] == string(enemyMove.MoveType) {
-			modifier *= 1.5
-		}
-	}
-	//type effect
 
-	//modified damage calculation
-	damage = int(modifier * float64(damage))
-	//log.Println("step 6: ", damage)
-	log.Println("actual damage: ", damage)
-	poke.stats.Hp -= damage
-	if poke.stats.Hp <= 0 {
-		log.Printf("%s dies", poke.base.Name)
-		return true
-	}
-	log.Printf("%s has %d hp left", poke.base.Name, poke.stats.Hp)
-	return false
-}
 
 // Name is a method
 func (poke *Pokemon) Name() string {
