@@ -43,5 +43,9 @@ const (
 	Paralyzed   PokemonStatus = iota
 	Poisoned    PokemonStatus = iota
 	Asleep		PokemonStatus = iota
+
 	Flinched 	PokemonStatus = iota
+	Confused	PokemonStatus = iota
+	Bound		PokemonStatus = iota
+	Leeched		PokemonStatus = iota
 )
