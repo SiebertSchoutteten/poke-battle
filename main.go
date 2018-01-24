@@ -16,6 +16,7 @@ func main() {
 
 	//calculator.Fight(poke4, poke2)
 	//log.Println(poke3, poke1)
+
 	actualcombats := [][]string{}
 	for i := 0; i < 5; i++ {
 		poke1 := calculator.GetRandomPokemon()

@@ -1,6 +1,7 @@
 package calculator
 
 import (
+	"strings"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -12,7 +13,8 @@ import (
 // Calculator knows pokemon
 type Calculator struct {
 	pokemon     map[int]*PokeBase
-	moves       map[int]*Move
+	moves       map[string]*Move
+	movesID		map[int]string
 	typeEffects map[string]float64
 }
 
@@ -61,12 +63,14 @@ func (c *Calculator) readMoves() {
 	}
 	hotEncodedList := c.hotEncodeList(movesList)
 
-	movemap := make(map[int]*Move)
+	movemapID := make(map[int]string)
+	movemap := make(map[string]*Move)
 	for i := 0; i < len(moves); i++ {
 		//log.Println(&moves[i])
 		moves[i].HotEncoding = hotEncodedList[moves[i].Name]
-		movemap[i+1] = &moves[i]
-		movemap[i+1].MoveID = i + 1
+		movemapID[i] = moves[i].Name
+		movemap[moves[i].Name] = &moves[i]
+		movemap[moves[i].Name].MoveID = i + 1
 	}
 	c.moves = movemap
 
@@ -177,7 +181,6 @@ func (c *Calculator) GetRandomSpecificPokemon(pokenumber, level int) *Pokemon {
 		moveset: moveset,
 		stats:   *stats,
 		status:  Fit,
-		recharging: false,
 		volatileStatus: make(map[PokemonStatus]bool),
 		maxHP: stats.Hp,
 	}
@@ -190,9 +193,10 @@ func (c *Calculator) GetRandomPokemon() *Pokemon {
 	log.Println("generating random pokemon")
 
 	//get pokemon base
-	base := c.pokemon[random(1, 151)]
+	base := c.pokemon[random(1, len(c.pokemon) -1)]
+	//base := c.pokemon[1]
 	log.Println("its a ", base.Name)
-
+	log.Println("moveset: ", base.Moveset)
 	//get random level between 1 and 99
 	level := random(MINLEVEL, MAXLEVEL)
 	log.Println("with level: ", level)
@@ -215,7 +219,7 @@ func (c *Calculator) GetRandomPokemon() *Pokemon {
 	defeated := random(0, max)
 	log.Printf("This pokemon has defeated %d pokemons already", defeated)
 	for index := 0; index < defeated; index++ {
-		randdefeated := c.pokemon[random(1, 151)]
+		randdefeated := c.pokemon[1]
 		attackEV += randdefeated.BaseStats.Attack
 		defenseEV += randdefeated.BaseStats.Defense
 		speedEV += randdefeated.BaseStats.Speed
@@ -276,7 +280,6 @@ func (c *Calculator) GetRandomPokemon() *Pokemon {
 		moveset: moveset,
 		stats:   *stats,
 		status:  Fit,
-		recharging: false,
 		volatileStatus: make(map[PokemonStatus]bool),
 		maxHP: stats.Hp,
 	}
@@ -286,10 +289,56 @@ func (c *Calculator) GetRandomPokemon() *Pokemon {
 func (c *Calculator) generateMoveset(poke *PokeBase, level int) [4]*Move {
 	var moves [4]*Move
 
-	for i := 0; i < 4; i++ {
-		random := random(1, len(c.moves))
-		moves[i] = c.moves[random]
+	// there is a 10% chance a pokemon knows 1 TM, 3% chance it knows 2, 2% it knows 3 en 1% it knows 1
+	var amountOfTm int
+	randomFactor := random(1,100)
+	if randomFactor == 1 && len(poke.Moveset.TmSet) > 3{
+		amountOfTm = 4
+	}else{
+		if randomFactor < 4 && len(poke.Moveset.TmSet) > 2{
+			amountOfTm = 3
+		}else{
+			if randomFactor < 7 && len(poke.Moveset.TmSet) > 1{
+				amountOfTm = 2
+			}else{
+				if randomFactor < 17 && len(poke.Moveset.TmSet) > 0{
+					amountOfTm = 1
+				}
+			}
+		}	
 	}
+
+	amountNormal := 4 - amountOfTm
+
+	log.Println("tms", amountOfTm)
+	log.Println(amountNormal)
+
+	// make a list of all possible normals
+	possiblesNormals := []string{}
+	for i := 0; i < len(poke.Moveset.MovesByLevel); i++ {
+		
+
+		move := poke.Moveset.MovesByLevel[i]
+		if move.Level <= level{
+			possiblesNormals = append(possiblesNormals, move.Move)
+		}
+	}
+	// set random normals as attack
+	for i := 0; i < amountNormal; i++ {
+		rand := 0
+		if len(possiblesNormals) != 1{
+			rand = random(0, len(possiblesNormals)-1)
+		}
+		log.Println(rand, possiblesNormals)
+		log.Println(strings.ToLower(possiblesNormals[rand]))
+		moves[i] = c.moves[strings.ToLower(possiblesNormals[rand])]
+	}
+
+	 // set random tms as attack
+	 for i := amountNormal; i < amountOfTm+amountNormal; i++ {
+		 random := random(0,len(poke.Moveset.TmSet)-1)
+		 moves[i] = c.moves[strings.ToLower(poke.Moveset.TmSet[random])]
+	 }
 	return moves
 }
 
@@ -331,10 +380,10 @@ func (c *Calculator) Fight(poke1 *Pokemon, poke2 *Pokemon) *Pokemon {
 
 		//if the chosen move is metronome a random move will be chosen
 		for poke1move.Name == "metronome"{
-			poke1move = c.moves[random(0,len(c.moves)-1)]
+			poke1move = c.moves[c.movesID[random(0,len(c.movesID))]]
 		}
 		for poke2move.Name == "metronome"{
-			poke2move = c.moves[random(0,len(c.moves)-1)]
+			poke2move = c.moves[c.movesID[random(0,len(c.movesID))]]
 		}
 
 		if poke1move.Name == "mirror move"{
@@ -530,16 +579,19 @@ func (c *Calculator) ApplyAfterEffects(poke1, poke2 *Pokemon) *Pokemon{
 			poke2.Unflinch()
 
 			// A disabled move might wear off after max 6 turns
-			if poke1.disabledMoveTurn == 6 || random(0,100) < 41{
-				log.Println("not disabled anymore")
-				poke1.disabledMove = nil
-				poke1.disabledMoveTurn = 0
+			if poke1.disabledMove != nil{
+				if poke1.disabledMoveTurn == 6 || random(0,100) < 41{
+					log.Println("not disabled anymore")
+					poke1.disabledMove = nil
+					poke1.disabledMoveTurn = 0
+				}
 			}
-
-			if poke2.disabledMoveTurn == 6 || random(0,100) < 41{
-				log.Println("not disabled anymore")
-				poke2.disabledMove = nil
-				poke2.disabledMoveTurn = 0
+			if poke2.disabledMove != nil{
+				if poke2.disabledMoveTurn == 6 || random(0,100) < 41{
+					log.Println("not disabled anymore")
+					poke2.disabledMove = nil
+					poke2.disabledMoveTurn = 0
+				}
 			}
 
 
@@ -936,8 +988,10 @@ func (c *Calculator) Effect(move *Move, damage int,poke, enemy *Pokemon){
 	
 
 	// if the target is biding, add damage to its bidecount
-	if poke.recurrentMove.Name == "bide"{
-		poke.bideCount += damage
+	if poke.recurrentMove != nil{
+		if poke.recurrentMove.Name == "bide"{
+			poke.bideCount += damage
+		}
 	}
 }
 // Attack attacks and returns the effective damage the enemy did on the target
@@ -1007,11 +1061,11 @@ func (c *Calculator) Attack(enemyMove *Move, poke, enemy *Pokemon, effectiveness
 		defense = 0
 	}
 
-	ada := int(float64(attack) / float64(defense))
+	ada := float64(attack) / float64(defense)
 	log.Println("attack/defense", ada)
 
 	log.Println("Power: ", enemyMove.Power)
-	damage *= enemyMove.Power * int(ada)
+	damage *= int(float64(enemyMove.Power) * ada)
 	log.Println("step 3: ", damage)
 	damage /= 50
 	log.Println("step 4: ", damage)
