@@ -68,14 +68,14 @@ type BaseStats struct {
 // Moveset defines all Moves a Pokemon is able to learn
 // Either through leveling or learning from a TM
 type Moveset struct {
-	movesByLevel []LevelMove
-	tmSet        []Move
+	MovesByLevel []LevelMove
+	TmSet        []string
 }
 
 // LevelMove specifies a move that a pokemon is able to learn at level
 type LevelMove struct {
-	level int
-	move  Move
+	Level int
+	Move  string
 }
 
 // TypeEffectiveness describes the effectiveness of type attack on type defense

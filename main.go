@@ -16,13 +16,15 @@ func main() {
 
 	//calculator.Fight(poke4, poke2)
 	//log.Println(poke3, poke1)
+
 	actualcombats := [][]string{}
-	for i := 0; i < 1; i++ {
+	for i := 0; i < 5; i++ {
 		poke1 := calculator.GetRandomPokemon()
 		poke2 := calculator.GetRandomPokemon()
 		winner := calculator.Fight(poke1, poke2)
 		moves1 := poke1.Moves()
 		moves2 := poke2.Moves()
+
 		leveldif := poke1.Level() - poke2.Level()
 		poke1wins := false
 		if winner == poke1 {
@@ -33,7 +35,6 @@ func main() {
 			//combat := []string{fmt.Sprintf("%s",poke1.HotEncoding()), fmt.Sprintf("%s",poke2.HotEncoding()), fmt.Sprintf("%d", leveldif),fmt.Sprintf("%t", poke1wins)}
 			actualcombats = append(actualcombats, combat)
 		}
-
 	}
 	//writeNewCombats(actualcombats)
 	//log.Println(poke4.HotEncoding())
