@@ -29,7 +29,7 @@
         "name": "acid armor",
         "moveType": "poison",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": null,
         "pp": 40,
         "effect": {
@@ -42,7 +42,7 @@
         "name": "agility",
         "moveType": "psychic",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": null,
         "pp": 30,
         "effect": {
@@ -55,7 +55,7 @@
         "name": "amnesia",
         "moveType": "psychic",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": null,
         "pp": 20,
         "effect": {
@@ -95,7 +95,7 @@
         "name": "barrier",
         "moveType": "psychic",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": null,
         "pp": 30,
         "effect": {
@@ -108,7 +108,7 @@
         "name": "bide",
         "moveType": "normal",
         "category": "physical",
-        "power": null,
+        "power": 0,
         "accuracy": null,
         "pp": 10,
         "effects": [
@@ -265,7 +265,7 @@
         "name": "confuse ray",
         "moveType": "ghost",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": 1.0,
         "pp": 10,
         "effect": {
@@ -304,7 +304,7 @@
         "name": "conversion",
         "moveType": "normal",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": null,
         "pp": 30,
         "changes": [
@@ -316,7 +316,7 @@
         "name": "counter",
         "moveType": "fighting",
         "category": "physical",
-        "power": null,
+        "power": 0,
         "accuracy": 1.0,
         "pp": 20,
         "priority": -1,
@@ -348,7 +348,7 @@
         "name": "defense curl",
         "moveType": "normal",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": null,
         "pp": 40,
         "effect": {
@@ -373,7 +373,7 @@
         "name": "disable",
         "moveType": "normal",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": 0.55,
         "pp": 20,
         "effects": [
@@ -425,7 +425,7 @@
         "name": "double team",
         "moveType": "normal",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": null,
         "pp": 15,
         "effect": {
@@ -453,7 +453,7 @@
         "name": "dragon rage",
         "moveType": "dragon",
         "category": "special",
-        "power": null,
+        "power": 0,
         "accuracy": 1.0,
         "pp": 10,
         "effects": [
@@ -574,7 +574,7 @@
         "name": "fissure",
         "moveType": "ground",
         "category": "physical",
-        "power": null,
+        "power": 0,
         "accuracy": null,
         "pp": 5,
         "effects": [
@@ -603,7 +603,7 @@
         "name": "flash",
         "moveType": "normal",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": 0.7,
         "pp": 20,
         "effect": {
@@ -629,7 +629,7 @@
         "name": "focus energy",
         "moveType": "normal",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": null,
         "pp": 30,
         "highCriticalHitRatio": true,
@@ -667,7 +667,7 @@
         "name": "glare",
         "moveType": "normal",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": 0.75,
         "pp": 30,
         "effect": {
@@ -679,7 +679,7 @@
         "name": "growl",
         "moveType": "normal",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": 1.0,
         "pp": 40,
         "effect": {
@@ -692,7 +692,7 @@
         "name": "growth",
         "moveType": "normal",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": null,
         "pp": 40,
         "effect": {
@@ -705,7 +705,7 @@
         "name": "guillotine",
         "moveType": "normal",
         "category": "physical",
-        "power": null,
+        "power": 0,
         "accuracy": null,
         "pp": 5,
         "effects": [
@@ -730,7 +730,7 @@
         "name": "harden",
         "moveType": "normal",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": null,
         "pp": 30,
         "effect": {
@@ -743,7 +743,7 @@
         "name": "haze",
         "moveType": "ice",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": null,
         "pp": 30,
         "effects": [
@@ -792,7 +792,7 @@
         "name": "horn drill",
         "moveType": "normal",
         "category": "physical",
-        "power": null,
+        "power": 0,
         "accuracy": null,
         "pp": 5,
         "effects": [
@@ -845,7 +845,7 @@
         "name": "hypnosis",
         "moveType": "psychic",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": 0.6,
         "pp": 20,
         "effect": {
@@ -908,7 +908,7 @@
         "name": "kinesis",
         "moveType": "psychic",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": 0.8,
         "pp": 15,
         "effect": {
@@ -933,7 +933,7 @@
         "name": "leech seed",
         "moveType": "grass",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": 0.9,
         "pp": 10,
         "effects": [
@@ -949,7 +949,7 @@
         "name": "leer",
         "moveType": "normal",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": 1.0,
         "pp": 30,
         "effect": {
@@ -975,7 +975,7 @@
         "name": "light screen",
         "moveType": "psychic",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": null,
         "pp": 30,
         "effects": [
@@ -987,7 +987,7 @@
         "name": "lovely kiss",
         "moveType": "normal",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": 0.75,
         "pp": 10,
         "effect": {
@@ -1012,7 +1012,7 @@
         "name": "meditate",
         "moveType": "psychic",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": null,
         "pp": 40,
         "effect": {
@@ -1056,7 +1056,7 @@
         "name": "metronome",
         "moveType": "normal",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": null,
         "pp": 10,
         "effects": [
@@ -1068,7 +1068,7 @@
         "name": "mimic",
         "moveType": "normal",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": null,
         "pp": 10,
         "effects": [
@@ -1084,7 +1084,7 @@
         "name": "minimize",
         "moveType": "normal",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": null,
         "pp": 20,
         "effect": {
@@ -1097,7 +1097,7 @@
         "name": "mirror move",
         "moveType": "flying",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": null,
         "pp": 20,
         "effects": [
@@ -1109,7 +1109,7 @@
         "name": "mist",
         "moveType": "ice",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": null,
         "pp": 30,
         "effects": [
@@ -1121,7 +1121,7 @@
         "name": "night shade",
         "moveType": "ghost",
         "category": "special",
-        "power": null,
+        "power": 0,
         "accuracy": 1.0,
         "pp": 15,
         "effects": [
@@ -1186,7 +1186,7 @@
         "name": "poison gas",
         "moveType": "poison",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": 0.55,
         "pp": 40,
         "effect": {
@@ -1198,7 +1198,7 @@
         "name": "poison powder",
         "moveType": "poison",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": 0.75,
         "pp": 35,
         "effect": {
@@ -1259,7 +1259,7 @@
         "name": "psywave",
         "moveType": "psychic",
         "category": "special",
-        "power": null,
+        "power": 0,
         "accuracy": 0.8,
         "pp": 15,
         "effects": [
@@ -1322,7 +1322,7 @@
         "name": "recover",
         "moveType": "normal",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": null,
         "pp": 20,
         "effects": [
@@ -1334,7 +1334,7 @@
         "name": "reflect",
         "moveType": "psychic",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": null,
         "pp": 20,
         "effects": [
@@ -1346,7 +1346,7 @@
         "name": "rest",
         "moveType": "psychic",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": null,
         "pp": 10,
         "effects": [
@@ -1358,7 +1358,7 @@
         "name": "roar",
         "moveType": "normal",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": 1.0,
         "pp": 20,
         "rating": 0.1
@@ -1402,7 +1402,7 @@
         "name": "sand attack",
         "moveType": "normal",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": 1.0,
         "pp": 15,
         "effect": {
@@ -1424,7 +1424,7 @@
         "name": "screech",
         "moveType": "normal",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": 0.85,
         "pp": 40,
         "effect": {
@@ -1437,7 +1437,7 @@
         "name": "seismic toss",
         "moveType": "fighting",
         "category": "physical",
-        "power": null,
+        "power": 0,
         "accuracy": 1.0,
         "pp": 20,
         "effects": [
@@ -1464,7 +1464,7 @@
         "name": "sharpen",
         "moveType": "normal",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": null,
         "pp": 30,
         "effect": {
@@ -1477,7 +1477,7 @@
         "name": "sing",
         "moveType": "normal",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": 0.55,
         "pp": 15,
         "effect": {
@@ -1535,7 +1535,7 @@
         "name": "sleep powder",
         "moveType": "grass",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": 0.75,
         "pp": 15,
         "effect": {
@@ -1573,7 +1573,7 @@
         "name": "smokescreen",
         "moveType": "normal",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": 1.0,
         "pp": 20,
         "effect": {
@@ -1586,7 +1586,7 @@
         "name": "soft-boiled",
         "moveType": "normal",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": null,
         "pp": 10,
         "effects": [
@@ -1610,7 +1610,7 @@
         "name": "sonic boom",
         "moveType": "normal",
         "category": "special",
-        "power": null,
+        "power": 0,
         "accuracy": 0.9,
         "pp": 20,
         "effects": [
@@ -1639,7 +1639,7 @@
         "name": "splash",
         "moveType": "normal",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": null,
         "pp": 40,
         "rating": 0.1
@@ -1648,7 +1648,7 @@
         "name": "spore",
         "moveType": "grass",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": 1.0,
         "pp": 15,
         "effect": {
@@ -1682,7 +1682,7 @@
         "name": "string shot",
         "moveType": "bug",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": 0.95,
         "pp": 40,
         "effect": {
@@ -1707,7 +1707,7 @@
         "name": "stun spore",
         "moveType": "grass",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": 0.75,
         "pp": 30,
         "effect": {
@@ -1731,7 +1731,7 @@
         "name": "substitute",
         "moveType": "normal",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": null,
         "pp": 10,
         "effects": [
@@ -1743,7 +1743,7 @@
         "name": "super fang",
         "moveType": "normal",
         "category": "physical",
-        "power": null,
+        "power": 0,
         "accuracy": 0.9,
         "pp": 10,
         "effects": [
@@ -1755,7 +1755,7 @@
         "name": "supersonic",
         "moveType": "normal",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": 0.55,
         "pp": 20,
         "effect": {
@@ -1788,7 +1788,7 @@
         "name": "swords dance",
         "moveType": "normal",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": null,
         "pp": 30,
         "effect": {
@@ -1810,7 +1810,7 @@
         "name": "tail whip",
         "moveType": "normal",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": 1.0,
         "pp": 30,
         "effect": {
@@ -1835,7 +1835,7 @@
         "name": "teleport",
         "moveType": "psychic",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": null,
         "pp": 20,
         "rating": 0.1
@@ -1901,7 +1901,7 @@
         "name": "thunder wave",
         "moveType": "electric",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": 1.0,
         "pp": 20,
         "effect": {
@@ -1926,7 +1926,7 @@
         "name": "toxic",
         "moveType": "poison",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": 0.85,
         "pp": 10,
         "changes": [
@@ -1941,7 +1941,7 @@
         "name": "transform",
         "moveType": "normal",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": null,
         "pp": 10,
         "effects": [
@@ -2015,7 +2015,7 @@
         "name": "whirlwind",
         "moveType": "normal",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": 0.85,
         "pp": 20,
         "rating": 0.1
@@ -2033,7 +2033,7 @@
         "name": "withdraw",
         "moveType": "water",
         "category": "status",
-        "power": null,
+        "power": 0,
         "accuracy": null,
         "pp": 40,
         "effect": {
