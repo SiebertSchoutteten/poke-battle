@@ -73,6 +73,7 @@ func (c *Calculator) readMoves() {
 		movemap[moves[i].Name].MoveID = i + 1
 	}
 	c.moves = movemap
+	c.movesID = movemapID
 	movio := &Move{
 		Power: 0,
 		MoveType: "none",
@@ -119,8 +120,10 @@ func (c *Calculator) GetRandomSpecificPokemon(pokenumber, level int) *Pokemon {
 
 	//generate a random ABLE moveset for the give pokemon
 	moveset := c.generateMoveset(base, level)
+	pp := [4]int{}
 	for i := 0; i < len(moveset); i++ {
 		log.Println("has move: ", moveset[i].Name)
+		pp[i] = moveset[i].PP
 	}
 
 	//calculate stats for base, level and generated IV's and EV's
@@ -199,6 +202,7 @@ func (c *Calculator) GetRandomSpecificPokemon(pokenumber, level int) *Pokemon {
 		status:  Fit,
 		volatileStatus: make(map[PokemonStatus]bool),
 		maxHP: stats.Hp,
+		pp: pp,
 	}
 
 	return pokemon
@@ -219,8 +223,10 @@ func (c *Calculator) GetRandomPokemon() *Pokemon {
 
 	//generate a random ABLE moveset for the give pokemon
 	moveset := c.generateMoveset(base, level)
+	pp := [4]int{}
 	for i := 0; i < len(moveset); i++ {
 		log.Println("has move: ", moveset[i].Name)
+		pp[i] = moveset[i].PP
 	}
 
 	//calculate stats for base, level and generated IV's and EV's
@@ -298,6 +304,7 @@ func (c *Calculator) GetRandomPokemon() *Pokemon {
 		status:  Fit,
 		volatileStatus: make(map[PokemonStatus]bool),
 		maxHP: stats.Hp,
+		pp: pp,
 	}
 
 	return pokemon
@@ -325,8 +332,10 @@ func (c *Calculator) GetRandomPokemonWithLevelDifference(otherlevel, leveldiffer
 
 	//generate a random ABLE moveset for the give pokemon
 	moveset := c.generateMoveset(base, level)
+	pp := [4]int{}
 	for i := 0; i < len(moveset); i++ {
 		log.Println("has move: ", moveset[i].Name)
+		pp[i] = moveset[i].PP
 	}
 
 	//calculate stats for base, level and generated IV's and EV's
@@ -404,6 +413,7 @@ func (c *Calculator) GetRandomPokemonWithLevelDifference(otherlevel, leveldiffer
 		status:  Fit,
 		volatileStatus: make(map[PokemonStatus]bool),
 		maxHP: stats.Hp,
+		pp: pp,
 	}
 
 	return pokemon
@@ -506,18 +516,8 @@ func (c *Calculator) Fight(poke1 *Pokemon, poke2 *Pokemon) *Pokemon {
 	// As long as one of the pokemon hasnt reached 0 HP the fight isnt over yet
 	for {
 		//let poke1 and poke2 choose a random move before fighting, unless a move was used that will be continued to use 
-		poke1move := poke1.SelectMove()
-		poke2move := poke2.SelectMove()
-
-		if poke1move == nil{
-			log.Println("all out of moves")
-			poke1move = c.moves["struggle"]
-		}
-
-		if poke2move == nil{
-			log.Println("all out of moves")
-			poke2move = c.moves["struggle"]
-		}
+		poke1move := c.moves[poke1.SelectMove()]
+		poke2move := c.moves[poke2.SelectMove()]
 		
 		//if the chosen move is metronome a random move will be chosen
 		if poke1move.Name == "metronome"{
@@ -570,31 +570,48 @@ func (c *Calculator) Fight(poke1 *Pokemon, poke2 *Pokemon) *Pokemon {
 		if poke1first {
 			someonedied := c.TryToAttack(poke2, poke1, poke1move,is1physical,0)
 			poke1.lastMove = poke1move
-			if someonedied != nil{
-				return someonedied
+			if someonedied == poke1{
+				return poke2
+			}
+			if someonedied == poke2{
+				return poke1
 			}
 			someonedied = c.TryToAttack(poke1, poke2, poke2move,is2physical,poke2.lastDealtDamage)
 			poke2.lastMove = poke2move
-			if someonedied != nil{
-				return someonedied
+			if someonedied == poke1{
+				return poke2
+			}
+			if someonedied == poke2{
+				return poke1
 			}
 		} else {
 			someonedied := c.TryToAttack(poke1, poke2, poke2move,is2physical,0)
 			poke2.lastMove = poke2move
-			if someonedied != nil{
-				return someonedied
+			if someonedied == poke1{
+				return poke2
+			}
+			if someonedied == poke2{
+				return poke1
 			}
 			someonedied = c.TryToAttack(poke2, poke1, poke1move,is1physical,poke1.lastDealtDamage)
 			poke1.lastMove = poke1move
-			if someonedied != nil{
-				return someonedied
+			if someonedied == poke1{
+				return poke2
+			}
+			if someonedied == poke2{
+				return poke1
 			}
 		}
 
 		// After effects applysion happens here, one of both pokemon could die after applysion
 		didsomeonedie := c.ApplyAfterEffects(poke1, poke2)
 		if didsomeonedie != nil{
-			return didsomeonedie
+			if didsomeonedie == poke1{
+				return poke2
+			}
+			if didsomeonedie == poke2{
+				return poke1
+			}
 		}
 	}
 }
@@ -612,6 +629,8 @@ func (c *Calculator) TryToAttack(target, attacker *Pokemon, usedmove *Move, phys
 			if c.doesMoveHit(usedmove,attacker.accuracyBoost,target.evasivenessBoost){
 				// Pokemon 1's attack strikes, if attack returns true, pokemon1 wins
 				effectiveness := c.GetTypeEffectiveness(target, usedmove)
+				log.Println(target.Types())
+				log.Println(usedmove.MoveType)
 				dmg :=  c.Attack(usedmove, target, attacker, effectiveness,physical,damage)
 				if target.IsDead(){
 					return target
@@ -650,6 +669,7 @@ func (c *Calculator) ApplyAfterEffects(poke1, poke2 *Pokemon) *Pokemon{
 			// sleep wears off after 1-4 turns
 			if poke1.status == Asleep{
 				if random(1,100) < 50 || poke1.sleepTurn == 4{
+					poke1.Cure()
 					log.Println("the pokemon woke up")
 				}else{
 					poke1.sleepTurn++
@@ -658,6 +678,7 @@ func (c *Calculator) ApplyAfterEffects(poke1, poke2 *Pokemon) *Pokemon{
 
 			if poke2.status == Asleep{
 				if random(1,100) < 50 || poke2.sleepTurn == 4{
+					poke2.Cure()
 					log.Println("the pokemon woke up")
 				}else{
 					poke2.sleepTurn++
@@ -1139,6 +1160,7 @@ func (c *Calculator) Effect(move *Move, damage int,poke, enemy *Pokemon){
 // Attack attacks and returns the effective damage the enemy did on the target
 func (c *Calculator) Attack(enemyMove *Move, poke, enemy *Pokemon, effectiveness float64, physical bool, phDmg int) int {
 
+	if enemyMove.Category != "status"{
 	// One hit KO's in case speed is faster
 	if enemyMove.Name == "fissure" || enemyMove.Name == "horn drill" || enemyMove.Name == "guillotine" {
 		if enemy.stats.Speed > poke.stats.Speed{
@@ -1198,11 +1220,7 @@ func (c *Calculator) Attack(enemyMove *Move, poke, enemy *Pokemon, effectiveness
 				defense *= 2
 			}
 		}
-	case "status":
-		attack = 0
-		defense = 0
 	}
-
 	ada := float64(attack) / float64(defense)
 	log.Println("attack/defense", ada)
 
@@ -1228,6 +1246,9 @@ func (c *Calculator) Attack(enemyMove *Move, poke, enemy *Pokemon, effectiveness
 	}
 	log.Println("Stab: ", Mstab)
 	// type effect was given in param
+	if enemyMove.Name == "struggle"{
+		effectiveness = 1
+	}
 	log.Println("effectivness: ", effectiveness)
 	// So modifier is calculated
 	modifier := Mrandom * Mstab *effectiveness
@@ -1246,6 +1267,7 @@ func (c *Calculator) Attack(enemyMove *Move, poke, enemy *Pokemon, effectiveness
 	}
 
 	if enemyMove.Name == "barrage" || enemyMove.Name == "comet punch" || enemyMove.Name == "double slap" || enemyMove.Name == "fire spin" || enemyMove.Name == "fury swipes" || enemyMove.Name == "fury attack" || enemyMove.Name == "pin missile" || enemyMove.Name == "spike cannon"{
+		log.Println("multi movee")
 		turns = random(2,5)
 	}
 	// Special damage moves
@@ -1307,16 +1329,10 @@ func (c *Calculator) Attack(enemyMove *Move, poke, enemy *Pokemon, effectiveness
 			damage = 0
 		}	
 	}
-
-	if enemyMove.Category == "status"{
-		damage = 0
-	}
 	// here pokemon deals damage x turns
-	log.Println("Applied damage:", damage)
 	for i := 0; i < turns; i++ {
-		if i > 1{
-			log.Println("turn :", i)
-		}
+		log.Println("turn :", i + 1)
+		log.Println("hit ", damage)
 		if poke.substituteHp > 0 && enemyMove.Name != "super fang" && enemyMove.Name != "bind" && enemyMove.Name != "clamp" && enemyMove.Name != "fire spin"{
 			poke.substituteHp -= damage
 			if poke.substituteHp < 0 {
@@ -1333,11 +1349,13 @@ func (c *Calculator) Attack(enemyMove *Move, poke, enemy *Pokemon, effectiveness
 	log.Printf("%s has %d hp left", poke.base.Name, poke.stats.Hp)
 	return damage
 }
+	return 0
+}
 // GetTypeEffectiveness returns a type effectiveness against the target pokemon
 func (c *Calculator) GetTypeEffectiveness(poke *Pokemon, move *Move) float64 {
-	effectiveness := c.typeEffects[string(move.MoveType)+"-"+poke.base.Types[0]]
+	effectiveness := c.typeEffects[move.MoveType+"-"+poke.base.Types[0]]
 
-	if len(poke.base.Types) > 1 {
+	if len(poke.base.Types) > 1 && poke.base.Types[1] != "fairy" && poke.base.Types[1] != "steel"{
 		effectiveness *= c.typeEffects[string(move.MoveType)+"-"+poke.base.Types[1]]
 	}
 

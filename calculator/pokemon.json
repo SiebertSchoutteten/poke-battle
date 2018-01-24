@@ -797,7 +797,7 @@
        "number":36,
        "name":"clefable",
        "types":[
-          "fairy"
+          "normal"
        ],
        "baseStats":{
           "hp":95,
@@ -850,7 +850,7 @@
        "number":35,
        "name":"clefairy",
        "types":[
-          "fairy"
+          "normal"
        ],
        "baseStats":{
           "hp":70,

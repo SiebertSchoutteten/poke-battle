@@ -1352,7 +1352,7 @@
         "effects": [
             "User sleeps for 2 turns, but user is fully healed."
         ],
-        "rating": 0.5,
+        "rating": 0.5
     },
     {
         "name": "roar",

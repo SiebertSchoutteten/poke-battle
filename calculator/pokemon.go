@@ -8,6 +8,7 @@ type Pokemon struct {
 	base    *PokeBase
 	level   int
 	moveset [4]*Move
+	pp	 [4]int
 	disabledMove	*Move
 	disabledMoveTurn	int
 	lastMove *Move
@@ -39,45 +40,65 @@ type Pokemon struct {
 	stats BaseStats
 }
 
-
-// SelectMove decides a random move the pokemon will use (recurrent moves will automatically be selected), disabled moves cannot be selected
-func (poke *Pokemon) SelectMove() *Move{
-	if poke.recurrentMove != nil{
-		return poke.recurrentMove
-	}
-
-	maxMoves := 0
-	allPP := 0
+func (poke *Pokemon) moveCount() int{
+	count := 0
 	for i := 0; i < len(poke.moveset); i++ {
-		if poke.moveset[i].Name != "none"{
-			maxMoves++
-		}else{
-			if poke.moveset[i].PP == 0{
-				allPP++
+		if poke.moveset[i] != nil{
+			if poke.moveset[i].Name != "none"{
+				count++
 			}
 		}
 	}
+	return count
+}
+// returns all moves that are not out of pp
+func (poke *Pokemon) ableMoves() []string{
+	amountOfMoves := poke.moveCount()
+	moves := []string{}
+	log.Println("amount",amountOfMoves)
+	for i := 0; i < amountOfMoves; i++ {
+		log.Println(poke.moveset[i].Name, poke.pp[i])
+		if poke.pp[i] >= 0{
+			if poke.disabledMove != nil{
+				if poke.disabledMove.Name != poke.moveset[i].Name{
+					moves = append(moves, poke.moveset[i].Name)
+				}
+			}else{
+				moves = append(moves, poke.moveset[i].Name)
+			}
 
-	if allPP > 4 - maxMoves{
-		return nil
+		}
+	}
+	return moves
+}
+// SelectMove decides a random move the pokemon will use (recurrent moves will automatically be selected), disabled moves cannot be selected
+func (poke *Pokemon) SelectMove() string{
+	if poke.recurrentMove != nil{
+		return poke.recurrentMove.Name
 	}
 
-	index := random(0,maxMoves)
-	move := poke.moveset[index]
-	if move != poke.disabledMove && poke.moveset[index].PP != 0{
-		move.PP--
-		return move
+	moves := poke.ableMoves()
+	log.Println("able moves: ", moves)
+	if len(moves) == 0{
+		//out of moves
+		return "struggle"
 	}
 
-	newIndex := random(0,maxMoves)
-	for index == newIndex && poke.moveset[newIndex].PP != 0{
-		newIndex = random(0,maxMoves)
+	if len(moves) == 1{
+		for i := 0; i < len(poke.moveset); i++ {
+			if poke.moveset[i].Name == moves[0]{
+				poke.pp[i]--
+			}
+		}
+		return moves[0]
+	}	
+	move := moves[random(0,len(moves)-1)]
+	for i := 0; i < len(poke.moveset); i++ {
+		if poke.moveset[i].Name == move{
+			poke.pp[i]--
+		}
 	}
-
-	poke.moveset[newIndex].PP--
-	return poke.moveset[newIndex]
-	
-
+	return move
 }
 // ChangeMove a pokemon's move on index to the given move
 func (poke *Pokemon) ChangeMove(index int, move *Move){
@@ -261,6 +282,10 @@ func (poke *Pokemon) ModifyAccuracy(stages int){
 // Lifesteal steals a given amount of life from another pokemon
 func (poke *Pokemon) Lifesteal(hp int)  {
 	poke.stats.Hp += hp
+}
+// Types returns a pokemons types
+func (poke *Pokemon) Types() []string{
+	return poke.base.Types
 }
 // IsDead returns whether a pokemon is dead or not
 func (poke *Pokemon) IsDead() bool{

@@ -4,23 +4,25 @@ import (
 	"encoding/csv"
 	"fmt"
 	"log"
-	//"io/ioutil"
+	"io/ioutil"
 	"os"
 
 	"github.com/SiebertSchoutteten/poke-battle/calculator"
 )
 
 func main() {
-	//log.SetOutput(ioutil.Discard)
+	log.SetOutput(ioutil.Discard)
 	calculator := calculator.NewCalculator()
 
 	//calculator.Fight(poke4, poke2)
 	//log.Println(poke3, poke1)
 
 	actualcombats := [][]string{}
-	for i := 0; i < 5; i++ {
+	for i := 0; i < 125000; i++ {
+		log.Println("fight: ",i)
 		poke1 := calculator.GetRandomPokemon()
 		poke2 := calculator.GetRandomPokemonWithLevelDifference(poke1.Level(), 10)
+
 		winner := calculator.Fight(poke1, poke2)
 		moves1 := poke1.Moves()
 		moves2 := poke2.Moves()
@@ -58,13 +60,13 @@ func main() {
 		if winner == poke1 {
 			poke1wins = true
 		}
-		//if i > 1000000{
-			combat := []string{poke1.Name(), poke2.Name(), fmt.Sprintf("%d", leveldif), fmt.Sprintf("%d",bs1[0]), fmt.Sprintf("%d",bs1[1]), fmt.Sprintf("%d",bs1[2]), fmt.Sprintf("%d",bs1[3]),fmt.Sprintf("%d",bs1[4]), fmt.Sprintf("%d",powerdiff),fmt.Sprintf("%d",effectivitydiff),fmt.Sprintf("%d",ratingdiff),fmt.Sprintf("%t", poke1wins)}
+		if i > 100000{
+			combat := []string{poke1.Name(), poke2.Name(), fmt.Sprintf("%d", leveldif), fmt.Sprintf("%d",bs1[0]), fmt.Sprintf("%d",bs1[1]), fmt.Sprintf("%d",bs1[2]), fmt.Sprintf("%d",bs1[3]),fmt.Sprintf("%d",bs1[4]), fmt.Sprintf("%d",powerdiff),fmt.Sprintf("%f",effectivitydiff),fmt.Sprintf("%f",ratingdiff),fmt.Sprintf("%t", poke1wins)}
 			//combat := []string{fmt.Sprintf("%s",poke1.HotEncoding()), fmt.Sprintf("%s",poke2.HotEncoding()), fmt.Sprintf("%d", leveldif),fmt.Sprintf("%t", poke1wins)}
 			actualcombats = append(actualcombats, combat)
-		//}
+		}
 	}
-	//writeNewCombats(actualcombats)
+	writeNewCombats(actualcombats)
 	//log.Println(poke4.HotEncoding())
 	//calculator.GetRandomSpecificPokemon(25,81)
 }
@@ -72,9 +74,9 @@ func main() {
 // Add Exeception for Bide https://bulbapedia.bulbagarden.net/wiki/Bide_(move)#Effect
 // ADD STAB
 func writeNewCombats(lines [][]string) {
-	file, err := os.Create("combats_test_big_super.csv")
+	file, err := os.OpenFile("combats_train_big_super.csv", os.O_CREATE|os.O_RDWR|os.O_APPEND, 0660);
 	if err != nil {
-		log.Fatalln("error creating new csv")
+		log.Fatalln("error creating new csv", err)
 	}
 	defer file.Close()
 
