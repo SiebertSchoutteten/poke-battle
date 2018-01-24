@@ -289,6 +289,10 @@ func (poke *Pokemon) Stats() []int {
 	return []int{poke.stats.Attack, poke.stats.Defense, poke.stats.Hp, poke.stats.Special, poke.stats.Speed}
 }
 
+// BaseStats is a function
+func (poke *Pokemon) BaseStats () []int{
+	return []int{poke.base.BaseStats.Attack,poke.base.BaseStats.Defense,poke.base.BaseStats.Hp,poke.base.BaseStats.Special,poke.stats.Speed}
+}
 // Number is a methodical function
 func (poke *Pokemon) Number() string {
 	return fmt.Sprintf("%d", poke.base.Number)

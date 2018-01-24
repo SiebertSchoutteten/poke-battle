@@ -68,7 +68,7 @@ func (c *Calculator) readMoves() {
 	for i := 0; i < len(moves); i++ {
 		//log.Println(&moves[i])
 		moves[i].HotEncoding = hotEncodedList[moves[i].Name]
-		movemapID[i] = moves[i].Name
+		movemapID[i +1] = moves[i].Name
 		movemap[moves[i].Name] = &moves[i]
 		movemap[moves[i].Name].MoveID = i + 1
 	}
@@ -78,6 +78,7 @@ func (c *Calculator) readMoves() {
 		MoveType: "none",
 		Category: "status",
 		PP: 0,
+		Name: "none",
 
 	}
 	c.moves["none"] = movio
@@ -96,6 +97,13 @@ func (c *Calculator) readEffects() {
 		typemap[typeformat] = typeEffects[i].Effectiveness
 	}
 	c.typeEffects = typemap
+}
+// GetMove returns a move if found or nil if not
+func (c *Calculator) GetMove(s string) *Move{
+	if c.moves[s] != nil{
+		return c.moves[s]
+	}
+	return nil
 }
 
 // GetRandomSpecificPokemon generates a given pokemon with given level
@@ -294,6 +302,112 @@ func (c *Calculator) GetRandomPokemon() *Pokemon {
 
 	return pokemon
 }
+// GetRandomPokemonWithLevelDifference generates a random pokemon with a chosen level and max leveldifference
+func (c *Calculator) GetRandomPokemonWithLevelDifference(otherlevel, leveldifference int) *Pokemon{
+	log.Println("generating random pokemon")
+
+	//get pokemon base
+	base := c.pokemon[random(1, len(c.pokemon) -1)]
+	//base := c.pokemon[1]
+	log.Println("its a ", base.Name)
+	log.Println("moveset: ", base.Moveset)
+	//get random level between 1 and 99
+	min := otherlevel - leveldifference
+	if min < 1{
+		min = 1
+	}
+	maxL := otherlevel + leveldifference
+	if maxL > 99{
+		maxL = 99
+	}
+	level := random(min, maxL)
+	log.Println("with level: ", level)
+
+	//generate a random ABLE moveset for the give pokemon
+	moveset := c.generateMoveset(base, level)
+	for i := 0; i < len(moveset); i++ {
+		log.Println("has move: ", moveset[i].Name)
+	}
+
+	//calculate stats for base, level and generated IV's and EV's
+	//calculate random EV's
+	var attackEV, defenseEV, speedEV, specialEV, HPEV, max int
+	if level < 5 {
+		max = level
+	} else {
+		max = ((level - 3) * (level - 3)) + 1
+	}
+	max /= 3
+	defeated := random(0, max)
+	log.Printf("This pokemon has defeated %d pokemons already", defeated)
+	for index := 0; index < defeated; index++ {
+		randdefeated := c.pokemon[1]
+		attackEV += randdefeated.BaseStats.Attack
+		defenseEV += randdefeated.BaseStats.Defense
+		speedEV += randdefeated.BaseStats.Speed
+		specialEV += randdefeated.BaseStats.Special
+		HPEV += randdefeated.BaseStats.Hp
+	}
+	if HPEV > 65535 {
+		HPEV = 65535
+	}
+
+	if defenseEV > 65535 {
+		defenseEV = 65535
+	}
+
+	if attackEV > 65535 {
+		attackEV = 65535
+	}
+	if specialEV > 65535 {
+		specialEV = 65535
+	}
+
+	if speedEV > 65535 {
+		speedEV = 65535
+	}
+	//calculate IV's
+	attackIV := random(0, 15)
+	defenseIV := random(0, 15)
+	speedIV := random(0, 15)
+	specialIV := random(0, 15)
+	//hpIV is calculated
+	var hpIV int
+	if !even(attackIV) {
+		hpIV += 8
+	} // 1111 = 8 + 4 + 2 + 1 = 15
+	if !even(defenseIV) {
+		hpIV += 4
+	}
+	if !even(speedIV) {
+		hpIV += 2
+	}
+	if !even(specialIV) {
+		hpIV++
+	}
+
+	stats := &BaseStats{
+		Hp:      c.calculateHP(base.BaseStats.Hp, hpIV, HPEV, level),
+		Attack:  c.calculateOtherStat(base.BaseStats.Attack, attackIV, attackEV, level),
+		Defense: c.calculateOtherStat(base.BaseStats.Defense, defenseIV, defenseEV, level),
+		Speed:   c.calculateOtherStat(base.BaseStats.Speed, speedIV, speedEV, level),
+		Special: c.calculateOtherStat(base.BaseStats.Special, specialIV, specialEV, level),
+	}
+
+	log.Printf("attack: %d, defense: %d, hp: %d, speed: %d, special: %d", stats.Attack, stats.Defense, stats.Hp, stats.Speed, stats.Special)
+
+	pokemon := &Pokemon{
+		base:    base,
+		level:   level,
+		moveset: moveset,
+		stats:   *stats,
+		status:  Fit,
+		volatileStatus: make(map[PokemonStatus]bool),
+		maxHP: stats.Hp,
+	}
+
+	return pokemon
+}
 func (c *Calculator) generateMoveset(poke *PokeBase, level int) [4]*Move {
 	var moves [4]*Move
 
@@ -405,13 +519,12 @@ func (c *Calculator) Fight(poke1 *Pokemon, poke2 *Pokemon) *Pokemon {
 			poke2move = c.moves["struggle"]
 		}
 		
-
 		//if the chosen move is metronome a random move will be chosen
-		for poke1move.Name == "metronome"{
-			poke1move = c.moves[c.movesID[random(0,len(c.movesID))]]
+		if poke1move.Name == "metronome"{
+			poke1move = c.GetMove(c.movesID[random(1,len(c.moves)-1)])
 		}
-		for poke2move.Name == "metronome"{
-			poke2move = c.moves[c.movesID[random(0,len(c.movesID))]]
+		if poke2move.Name == "metronome"{
+			poke2move = c.GetMove(c.movesID[random(1,len(c.moves)-1)])
 		}
 
 		if poke1move.Name == "mirror move"{
@@ -419,6 +532,7 @@ func (c *Calculator) Fight(poke1 *Pokemon, poke2 *Pokemon) *Pokemon {
 				poke1move = poke2.lastMove
 			}
 		}
+
 		if poke2move.Name == "mirror move"{
 			if poke1.lastMove != nil{
 				poke2move = poke1.lastMove
@@ -497,7 +611,7 @@ func (c *Calculator) TryToAttack(target, attacker *Pokemon, usedmove *Move, phys
 		}else{
 			if c.doesMoveHit(usedmove,attacker.accuracyBoost,target.evasivenessBoost){
 				// Pokemon 1's attack strikes, if attack returns true, pokemon1 wins
-				effectiveness := c.getTypeEffectiveness(target, usedmove)
+				effectiveness := c.GetTypeEffectiveness(target, usedmove)
 				dmg :=  c.Attack(usedmove, target, attacker, effectiveness,physical,damage)
 				if target.IsDead(){
 					return target
@@ -1219,7 +1333,8 @@ func (c *Calculator) Attack(enemyMove *Move, poke, enemy *Pokemon, effectiveness
 	log.Printf("%s has %d hp left", poke.base.Name, poke.stats.Hp)
 	return damage
 }
-func (c *Calculator) getTypeEffectiveness(poke *Pokemon, move *Move) float64 {
+// GetTypeEffectiveness returns a type effectiveness against the target pokemon
+func (c *Calculator) GetTypeEffectiveness(poke *Pokemon, move *Move) float64 {
 	effectiveness := c.typeEffects[string(move.MoveType)+"-"+poke.base.Types[0]]
 
 	if len(poke.base.Types) > 1 {

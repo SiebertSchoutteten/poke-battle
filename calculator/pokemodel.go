@@ -15,6 +15,7 @@ type Move struct {
 	Effect               interface{}
 	Effects              interface{}
 	Changes              interface{}
+	Rating				 float64
 	/*selfDamage        int
 		multipleHit       multipleStats
 	multipleTurn      multipleStats
