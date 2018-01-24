@@ -73,6 +73,14 @@ func (c *Calculator) readMoves() {
 		movemap[moves[i].Name].MoveID = i + 1
 	}
 	c.moves = movemap
+	movio := &Move{
+		Power: 0,
+		MoveType: "none",
+		Category: "status",
+		PP: 0,
+
+	}
+	c.moves["none"] = movio
 
 }
 func (c *Calculator) readEffects() {
@@ -316,12 +324,14 @@ func (c *Calculator) generateMoveset(poke *PokeBase, level int) [4]*Move {
 	// make a list of all possible normals
 	possiblesNormals := []string{}
 	for i := 0; i < len(poke.Moveset.MovesByLevel); i++ {
-		
-
 		move := poke.Moveset.MovesByLevel[i]
 		if move.Level <= level{
 			possiblesNormals = append(possiblesNormals, move.Move)
 		}
+	}
+	
+	if amountNormal > len(possiblesNormals){
+		amountNormal = len(possiblesNormals)
 	}
 	// set random normals as attack
 	for i := 0; i < amountNormal; i++ {
@@ -329,15 +339,23 @@ func (c *Calculator) generateMoveset(poke *PokeBase, level int) [4]*Move {
 		if len(possiblesNormals) != 1{
 			rand = random(0, len(possiblesNormals)-1)
 		}
+		
 		log.Println(rand, possiblesNormals)
 		log.Println(strings.ToLower(possiblesNormals[rand]))
 		moves[i] = c.moves[strings.ToLower(possiblesNormals[rand])]
+		possiblesNormals = append(possiblesNormals[:rand], possiblesNormals[rand+1:]...)		
 	}
 
 	 // set random tms as attack
 	 for i := amountNormal; i < amountOfTm+amountNormal; i++ {
 		 random := random(0,len(poke.Moveset.TmSet)-1)
 		 moves[i] = c.moves[strings.ToLower(poke.Moveset.TmSet[random])]
+	 }
+
+	 for i := 0; i < len(moves); i++ {
+		 if moves[i] == nil{
+			 moves[i] = c.moves["none"]
+		 }
 	 }
 	return moves
 }
@@ -376,6 +394,16 @@ func (c *Calculator) Fight(poke1 *Pokemon, poke2 *Pokemon) *Pokemon {
 		//let poke1 and poke2 choose a random move before fighting, unless a move was used that will be continued to use 
 		poke1move := poke1.SelectMove()
 		poke2move := poke2.SelectMove()
+
+		if poke1move == nil{
+			log.Println("all out of moves")
+			poke1move = c.moves["struggle"]
+		}
+
+		if poke2move == nil{
+			log.Println("all out of moves")
+			poke2move = c.moves["struggle"]
+		}
 		
 
 		//if the chosen move is metronome a random move will be chosen
@@ -1166,6 +1194,9 @@ func (c *Calculator) Attack(enemyMove *Move, poke, enemy *Pokemon, effectiveness
 		}	
 	}
 
+	if enemyMove.Category == "status"{
+		damage = 0
+	}
 	// here pokemon deals damage x turns
 	log.Println("Applied damage:", damage)
 	for i := 0; i < turns; i++ {

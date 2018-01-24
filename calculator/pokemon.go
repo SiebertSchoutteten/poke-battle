@@ -45,17 +45,38 @@ func (poke *Pokemon) SelectMove() *Move{
 	if poke.recurrentMove != nil{
 		return poke.recurrentMove
 	}
-	index := random(0,3)
+
+	maxMoves := 0
+	allPP := 0
+	for i := 0; i < len(poke.moveset); i++ {
+		if poke.moveset[i].Name != "none"{
+			maxMoves++
+		}else{
+			if poke.moveset[i].PP == 0{
+				allPP++
+			}
+		}
+	}
+
+	if allPP > 4 - maxMoves{
+		return nil
+	}
+
+	index := random(0,maxMoves)
 	move := poke.moveset[index]
-	if move != poke.disabledMove{
+	if move != poke.disabledMove && poke.moveset[index].PP != 0{
+		move.PP--
 		return move
 	}
 
-	newIndex := random(0,3)
-	for index == newIndex{
-		newIndex = random(0,3)
+	newIndex := random(0,maxMoves)
+	for index == newIndex && poke.moveset[newIndex].PP != 0{
+		newIndex = random(0,maxMoves)
 	}
+
+	poke.moveset[newIndex].PP--
 	return poke.moveset[newIndex]
+	
 
 }
 // ChangeMove a pokemon's move on index to the given move
