@@ -55,9 +55,9 @@ func (poke *Pokemon) moveCount() int{
 func (poke *Pokemon) ableMoves() []string{
 	amountOfMoves := poke.moveCount()
 	moves := []string{}
-	log.Println("amount",amountOfMoves)
+	//log.Println("amount",amountOfMoves)
 	for i := 0; i < amountOfMoves; i++ {
-		log.Println(poke.moveset[i].Name, poke.pp[i])
+		//log.Println(poke.moveset[i].Name, poke.pp[i])
 		if poke.pp[i] >= 0{
 			if poke.disabledMove != nil{
 				if poke.disabledMove.Name != poke.moveset[i].Name{
@@ -137,7 +137,10 @@ func (poke *Pokemon) Burn(){
 func (poke *Pokemon) Bind(){
 	poke.volatileStatus[Bound] = true
 }
-
+// MaxHP returns the pokemons MaxHP
+func (poke *Pokemon) MaxHP() int{
+	return poke.maxHP
+}
 // Invulnerate invulnerates the pokemon
 func (poke *Pokemon) Invulnerate(){
 	poke.invulnerability = true

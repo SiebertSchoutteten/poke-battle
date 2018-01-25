@@ -1,0 +1,7 @@
+[{"Name":"golduck","Level":62,"Attack":122,"Defense":119,"Hp":182,"Special":122,"Speed":112,"Move1":"scratch","Move2":"fury swipes","Move3":"hydro pump","Move4":"confusion"},
+{"Name":"ninetales","Level":65,"Attack":116,"Defense":105,"Hp":173,"Special":149,"Speed":141,"Move1":"ember","Move2":"confuse ray","Move3":"fire spin","Move4":"flamethrower"},
+{"Name":"arbok","Level":62,"Attack":133,"Defense":114,"Hp":149,"Special":102,"Speed":127,"Move1":"wrap","Move2":"glare","Move3":"acid","Move4":"bide"},
+{"Name":"zapdos","Level":65,"Attack":125,"Defense":127,"Hp":207,"Special":175,"Speed":145,"Move1":"thunder shock","Move2":"drill peck","Move3":"thunder","Move4":"light screen"},
+{"Name":"electabuzz","Level":55,"Attack":110,"Defense":72,"Hp":146,"Special":104,"Speed":122,"Move1":"quick attack","Move2":"thunder punch","Move3":"thunder shock","Move4":"thunder"},
+{"Name":"seadra","Level":63,"Attack":105,"Defense":142,"Hp":156,"Special":136,"Speed":123,"Move1":"bubble","Move2":"hydro pump","Move3":"agility","Move4":"water gun"},
+{"Name":"omastar","Level":50,"Attack":71,"Defense":143,"Hp":134,"Special":74,"Speed":130,"Move1":"water gun","Move2":"spike cannon","Move3":"horn attack","Move4":"hydro pump"}]

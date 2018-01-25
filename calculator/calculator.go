@@ -13,6 +13,7 @@ import (
 // Calculator knows pokemon
 type Calculator struct {
 	pokemon     map[int]*PokeBase
+	pokesID		map[string]int
 	moves       map[string]*Move
 	movesID		map[int]string
 	typeEffects map[string]float64
@@ -29,11 +30,12 @@ func NewCalculator() *Calculator {
 func (c *Calculator) readPokemon() {
 
 	var pokes Pokebases
+	pokesID := make(map[string]int)
 	err := readJSON("calculator/pokemon.json", &pokes)
 	if err != nil {
 		log.Fatalln(err)
 	}
-	log.Println("read pokemon: ", len(pokes))
+	//log.Println("read pokemon: ", len(pokes))
 
 	pokesList := []string{}
 	for i := 0; i < len(pokes); i++ {
@@ -47,7 +49,9 @@ func (c *Calculator) readPokemon() {
 		poke := &pokes[i]
 		//log.Println(poke.Number)
 		pokemap[poke.Number] = poke
+		pokesID[poke.Name] = poke.Number
 	}
+	c.pokesID = pokesID
 	c.pokemon = pokemap
 }
 func (c *Calculator) readMoves() {
@@ -106,7 +110,22 @@ func (c *Calculator) GetMove(s string) *Move{
 	}
 	return nil
 }
-
+// GetSpecificPokemon generates a specific pokemon
+func (c *Calculator) GetSpecificPokemon(name, move1, move2, move3, move4 string, level, attack, defense, hp, special, speed int) *Pokemon{
+	moveset := [4]*Move{c.GetMove(move1),c.GetMove(move2),c.GetMove(move3),c.GetMove(move4)}
+	return &Pokemon{
+		base: c.pokemon[c.pokesID[name]],
+		level: level, 
+		moveset: moveset,
+		stats: BaseStats{
+			Attack: attack,
+			Defense: defense,
+			Hp: hp,
+			Special: special,
+			Speed: speed,
+		},
+	}
+}
 // GetRandomSpecificPokemon generates a given pokemon with given level
 func (c *Calculator) GetRandomSpecificPokemon(pokenumber, level int) *Pokemon {
 	log.Println("generating random pokemon")
@@ -568,6 +587,7 @@ func (c *Calculator) Fight(poke1 *Pokemon, poke2 *Pokemon) *Pokemon {
 		// if a pokemon misses its attack, nothing happens
 		// if a pokemon is unable to attack due to paralyzation or other status effects nothing happens either
 		if poke1first {
+			log.Println("poke 1 uses ", poke1move.Name)
 			someonedied := c.TryToAttack(poke2, poke1, poke1move,is1physical,0)
 			poke1.lastMove = poke1move
 			if someonedied == poke1{
@@ -576,6 +596,7 @@ func (c *Calculator) Fight(poke1 *Pokemon, poke2 *Pokemon) *Pokemon {
 			if someonedied == poke2{
 				return poke1
 			}
+			log.Println("poke 2 uses ", poke2move.Name)
 			someonedied = c.TryToAttack(poke1, poke2, poke2move,is2physical,poke2.lastDealtDamage)
 			poke2.lastMove = poke2move
 			if someonedied == poke1{
@@ -586,6 +607,7 @@ func (c *Calculator) Fight(poke1 *Pokemon, poke2 *Pokemon) *Pokemon {
 			}
 		} else {
 			someonedied := c.TryToAttack(poke1, poke2, poke2move,is2physical,0)
+			log.Println("poke 2 uses ", poke2move.Name)
 			poke2.lastMove = poke2move
 			if someonedied == poke1{
 				return poke2
@@ -594,6 +616,7 @@ func (c *Calculator) Fight(poke1 *Pokemon, poke2 *Pokemon) *Pokemon {
 				return poke1
 			}
 			someonedied = c.TryToAttack(poke2, poke1, poke1move,is1physical,poke1.lastDealtDamage)
+			log.Println("poke 1 uses ", poke1move.Name)
 			poke1.lastMove = poke1move
 			if someonedied == poke1{
 				return poke2
@@ -1161,198 +1184,199 @@ func (c *Calculator) Effect(move *Move, damage int,poke, enemy *Pokemon){
 func (c *Calculator) Attack(enemyMove *Move, poke, enemy *Pokemon, effectiveness float64, physical bool, phDmg int) int {
 
 	if enemyMove.Category != "status"{
-	// One hit KO's in case speed is faster
-	if enemyMove.Name == "fissure" || enemyMove.Name == "horn drill" || enemyMove.Name == "guillotine" {
-		if enemy.stats.Speed > poke.stats.Speed{
-			poke.stats.Hp = 0
-			return poke.maxHP
-		}
-	}
-
-	// Selfdestruct and exploision kill the attacker
-	if enemyMove.Name == "explosion" || enemyMove.Name == "selfdestruct"{
-		enemy.stats.Hp = 0
-		return enemy.maxHP
-	}
-
-	// decide if move is critical
-	critical := c.RandomCriticalMove(enemy, enemyMove)
-
-	// Damage calculation 
-	log.Printf("%s uses %s", enemy.base.Name, enemyMove.Name)
-	var attack, defense int
-
-	level := enemy.level
-	if critical{
-		log.Println("critical hit")
-		level *= 2
-	}
-
-	damage := (2 * level) / 5
-
-	
-	log.Println("step 1: ", damage)
-	damage += 2
-	log.Println("step 2: ", damage)
-
-	switch enemyMove.Category {
-	case "physical":
-		attack = enemy.stats.Attack
-		//burned pokemon's attack stat is halved
-		if enemy.status == Burned  && !critical{
-			attack /= 2
-		}
-		defense = poke.stats.Defense
-		if !critical{
-			attack =  int(float64(attack) *c.getStageMultiplier(false, enemy.attackBoost))
-			defense = int(float64(defense) *c.getStageMultiplier(false, poke.defenseBoost))
-		}
-	case "special":
-		attack = enemy.stats.Special
-		defense = poke.stats.Special
-		if !critical{
-			attack =  int(float64(attack) *c.getStageMultiplier(false, enemy.attackBoost))
-			if enemy.lightscreen{
-				attack *= 2
-			}
-			defense = int(float64(defense) *c.getStageMultiplier(false, poke.defenseBoost))
-			if poke.reflected{
-				defense *= 2
+		// One hit KO's in case speed is faster
+		if enemyMove.Name == "fissure" || enemyMove.Name == "horn drill" || enemyMove.Name == "guillotine" {
+			if enemy.stats.Speed > poke.stats.Speed{
+				poke.stats.Hp = 0
+				return poke.maxHP
 			}
 		}
-	}
-	ada := float64(attack) / float64(defense)
-	log.Println("attack/defense", ada)
 
-	log.Println("Power: ", enemyMove.Power)
-	damage *= int(float64(enemyMove.Power) * ada)
-	log.Println("step 3: ", damage)
-	damage /= 50
-	log.Println("step 4: ", damage)
-	damage += 2
-	log.Println("step 5: ", damage)
-	//modifier = random * stab * type effect
-
-	//random is between 0.85 and 1
-	Mrandom := float64(random(218, 255))
-	Mrandom /= 255
-
-	//stab
-	Mstab := 1.0
-	for i := 0; i < len(enemy.base.Types); i++ {
-		if enemy.base.Types[i] == string(enemyMove.MoveType) {
-			Mstab = 1.5
+		// Selfdestruct and exploision kill the attacker
+		if enemyMove.Name == "explosion" || enemyMove.Name == "selfdestruct"{
+			enemy.stats.Hp = 0
+			return enemy.maxHP
 		}
-	}
-	log.Println("Stab: ", Mstab)
-	// type effect was given in param
-	if enemyMove.Name == "struggle"{
-		effectiveness = 1
-	}
-	log.Println("effectivness: ", effectiveness)
-	// So modifier is calculated
-	modifier := Mrandom * Mstab *effectiveness
-	log.Println("modifier: ", modifier)
 
-	//modified damage calculation
-	damage = int(modifier * float64(damage))
-	//log.Println("step 6: ", damage)
-	log.Println("actual damage: ", damage)
+		// decide if move is critical
+		critical := c.RandomCriticalMove(enemy, enemyMove)
 
+		// Damage calculation 
+		log.Printf("%s uses %s", enemy.base.Name, enemyMove.Name)
+		var attack, defense int
 
-	turns := 1
-	// special turn moves
-	if enemyMove.Name == "bonemerang" || enemyMove.Name == "double kick" || enemyMove.Name == "twineedle"{
-		turns = 2
-	}
-
-	if enemyMove.Name == "barrage" || enemyMove.Name == "comet punch" || enemyMove.Name == "double slap" || enemyMove.Name == "fire spin" || enemyMove.Name == "fury swipes" || enemyMove.Name == "fury attack" || enemyMove.Name == "pin missile" || enemyMove.Name == "spike cannon"{
-		log.Println("multi movee")
-		turns = random(2,5)
-	}
-	// Special damage moves
-	if enemyMove.Name == "psywave"{
-		damage = random(int(enemy.Level()/2), int(enemy.Level()*(3/2)))
-	}
-	if enemyMove.Name == "seismic toss" || enemyMove.Name == "night shade"{
-		damage = enemy.Level()
-	}
-	if enemyMove.Name == "dragon rage"{
-		damage = 40
-	}
-
-	if enemyMove.Name == "super fang"{
-		damage = int(poke.stats.Hp / 2) - 1
-	}
-
-	if enemyMove.Name == "sonic boom"{
-		damage = 20
-	}
-
-	if enemyMove.Name == "dream eater" && poke.status != Asleep{
-		damage = 0
-	}
-	// Recurrent moves that dont deal damage in case its not the right turn
-	if enemyMove.Name == "solar beam" || enemyMove.Name == "sky attack" || enemyMove.Name == "skull bash" || enemyMove.Name == "fly" || enemyMove.Name == "dig" || enemyMove.Name == "razor wind"{
-		if enemy.recurrentMoveTurn > 1{
-			log.Println("charging")
-			damage = 0
+		level := enemy.level
+		if critical{
+			log.Println("critical hit")
+			level *= 2
 		}
-	}
 
-	if enemyMove.Name == "hyper beam"{
-		if enemy.recurrentMoveTurn == 1{
-			log.Println("recharging")
-			damage = 0
-		}
-	}
+		damage := (2 * level) / 5
 
-	if enemyMove.Name == "fly" || enemyMove.Name == "dig"{
-		if enemy.recurrentMoveTurn > 1{
-			log.Println("underground or high in the sky")
-			damage = 0
-		}
-	}
+		
+		log.Println("step 1: ", damage)
+		damage += 2
+		log.Println("step 2: ", damage)
 
-	if enemyMove.Name == "bide"{
-		if enemy.recurrentMoveTurn == 3 || enemy.recurrentMoveTurn == random(2,3){
-			damage = enemy.bideCount * 2
-		}else{
-			damage = 0
-		}
-	}
-
-	if enemyMove.Name == "counter"{
-		if physical{
-			damage = phDmg * 2
-		}else{
-			damage = 0
-		}	
-	}
-	// here pokemon deals damage x turns
-	for i := 0; i < turns; i++ {
-		log.Println("turn :", i + 1)
-		log.Println("hit ", damage)
-		if poke.substituteHp > 0 && enemyMove.Name != "super fang" && enemyMove.Name != "bind" && enemyMove.Name != "clamp" && enemyMove.Name != "fire spin"{
-			poke.substituteHp -= damage
-			if poke.substituteHp < 0 {
-				// if substitute breaks all multi turns moves break
-				log.Println("Substitute broke")
-				poke.substituteHp = 0
-				i = 6
+		switch enemyMove.Category {
+		case "physical":
+			attack = enemy.stats.Attack
+			//burned pokemon's attack stat is halved
+			if enemy.status == Burned  && !critical{
+				attack /= 2
 			}
-		}else{
-			poke.stats.Hp -= damage
+			defense = poke.stats.Defense
+			if !critical{
+				attack =  int(float64(attack) *c.getStageMultiplier(false, enemy.attackBoost))
+				defense = int(float64(defense) *c.getStageMultiplier(false, poke.defenseBoost))
+			}
+		case "special":
+			attack = enemy.stats.Special
+			defense = poke.stats.Special
+			if !critical{
+				attack =  int(float64(attack) *c.getStageMultiplier(false, enemy.attackBoost))
+				if enemy.lightscreen{
+					attack *= 2
+				}
+				defense = int(float64(defense) *c.getStageMultiplier(false, poke.defenseBoost))
+				if poke.reflected{
+					defense *= 2
+				}
+			}
 		}
-	}
+		ada := float64(attack) / float64(defense)
+		log.Println("attack/defense", ada)
 
-	log.Printf("%s has %d hp left", poke.base.Name, poke.stats.Hp)
-	return damage
-}
+		log.Println("Power: ", enemyMove.Power)
+		damage *= int(float64(enemyMove.Power) * ada)
+		log.Println("step 3: ", damage)
+		damage /= 50
+		log.Println("step 4: ", damage)
+		damage += 2
+		log.Println("step 5: ", damage)
+		//modifier = random * stab * type effect
+
+		//random is between 0.85 and 1
+		Mrandom := float64(random(218, 255))
+		Mrandom /= 255
+
+		//stab
+		Mstab := 1.0
+		for i := 0; i < len(enemy.base.Types); i++ {
+			if enemy.base.Types[i] == string(enemyMove.MoveType) {
+				Mstab = 1.5
+			}
+		}
+		log.Println("Stab: ", Mstab)
+		// type effect was given in param
+		if enemyMove.Name == "struggle"{
+			effectiveness = 1
+		}
+		log.Println("effectivness: ", effectiveness)
+		// So modifier is calculated
+		modifier := Mrandom * Mstab *effectiveness
+		log.Println("modifier: ", modifier)
+
+		//modified damage calculation
+		damage = int(modifier * float64(damage))
+		//log.Println("step 6: ", damage)
+		log.Println("actual damage: ", damage)
+
+
+		turns := 1
+		// special turn moves
+		if enemyMove.Name == "bonemerang" || enemyMove.Name == "double kick" || enemyMove.Name == "twineedle"{
+			turns = 2
+		}
+
+		if enemyMove.Name == "barrage" || enemyMove.Name == "comet punch" || enemyMove.Name == "double slap" || enemyMove.Name == "fire spin" || enemyMove.Name == "fury swipes" || enemyMove.Name == "fury attack" || enemyMove.Name == "pin missile" || enemyMove.Name == "spike cannon"{
+			log.Println("multi movee")
+			turns = random(2,5)
+		}
+		// Special damage moves
+		if enemyMove.Name == "psywave"{
+			damage = random(int(enemy.Level()/2), int(enemy.Level()*(3/2)))
+		}
+		if enemyMove.Name == "seismic toss" || enemyMove.Name == "night shade"{
+			damage = enemy.Level()
+		}
+		if enemyMove.Name == "dragon rage"{
+			damage = 40
+		}
+
+		if enemyMove.Name == "super fang"{
+			damage = int(poke.stats.Hp / 2) - 1
+		}
+
+		if enemyMove.Name == "sonic boom"{
+			damage = 20
+		}
+
+		if enemyMove.Name == "dream eater" && poke.status != Asleep{
+			damage = 0
+		}
+		// Recurrent moves that dont deal damage in case its not the right turn
+		if enemyMove.Name == "solar beam" || enemyMove.Name == "sky attack" || enemyMove.Name == "skull bash" || enemyMove.Name == "fly" || enemyMove.Name == "dig" || enemyMove.Name == "razor wind"{
+			if enemy.recurrentMoveTurn > 1{
+				log.Println("charging")
+				damage = 0
+			}
+		}
+
+		if enemyMove.Name == "hyper beam"{
+			if enemy.recurrentMoveTurn == 1{
+				log.Println("recharging")
+				damage = 0
+			}
+		}
+
+		if enemyMove.Name == "fly" || enemyMove.Name == "dig"{
+			if enemy.recurrentMoveTurn > 1{
+				log.Println("underground or high in the sky")
+				damage = 0
+			}
+		}
+
+		if enemyMove.Name == "bide"{
+			if enemy.recurrentMoveTurn == 3 || enemy.recurrentMoveTurn == random(2,3){
+				damage = enemy.bideCount * 2
+			}else{
+				damage = 0
+			}
+		}
+
+		if enemyMove.Name == "counter"{
+			if physical{
+				damage = phDmg * 2
+			}else{
+				damage = 0
+			}	
+		}
+		// here pokemon deals damage x turns
+		for i := 0; i < turns; i++ {
+			log.Println("turn :", i + 1)
+			log.Println("hit ", damage)
+			if poke.substituteHp > 0 && enemyMove.Name != "super fang" && enemyMove.Name != "bind" && enemyMove.Name != "clamp" && enemyMove.Name != "fire spin"{
+				poke.substituteHp -= damage
+				if poke.substituteHp < 0 {
+					// if substitute breaks all multi turns moves break
+					log.Println("Substitute broke")
+					poke.substituteHp = 0
+					i = 6
+				}
+			}else{
+				poke.stats.Hp -= damage
+			}
+		}
+
+		log.Printf("%s has %d hp left", poke.base.Name, poke.stats.Hp)
+		return damage
+	}
 	return 0
 }
 // GetTypeEffectiveness returns a type effectiveness against the target pokemon
 func (c *Calculator) GetTypeEffectiveness(poke *Pokemon, move *Move) float64 {
+	
 	effectiveness := c.typeEffects[move.MoveType+"-"+poke.base.Types[0]]
 
 	if len(poke.base.Types) > 1 && poke.base.Types[1] != "fairy" && poke.base.Types[1] != "steel"{
@@ -1453,6 +1477,60 @@ func (c *Calculator) hotEncodeList(list []string) map[string]string {
 	}
 	return encodedList
 }
+// OutputPokemonDifference outputs the differences between poke1 and poke2 
+func (c *Calculator) OutputPokemonDifference(poke1, poke2 *Pokemon) []string{
+
+	moves1 := poke1.Moves()
+	moves2 := poke2.Moves()
+
+	// difference in effectivity of moves
+	effectivitydiff := 0.0
+	// powerdifference between 2 pokemons moves
+	powerdiff := 0
+	// ratingdifference between 2 pokemons moves
+	ratingdiff := 0.0
+	for i := 0; i < len(moves1); i++ {
+		move1 := c.GetMove(moves1[i])
+		move2 := c.GetMove(moves2[i])
+		if move1 != nil{
+			powerdiff += move1.Power
+			effectivitydiff += c.GetTypeEffectiveness(poke2,move1)
+			ratingdiff += move1.Rating
+		}
+		if move2 != nil{
+			powerdiff -= move2.Power
+			effectivitydiff -= c.GetTypeEffectiveness(poke1,move2)
+			ratingdiff -= move2.Rating
+		}
+	}
+
+	// difference in base stats between the pokemon
+	bs1 := poke1.Stats()
+	bs2 := poke2.Stats()
+	for i := 0; i < len(bs1); i++ {
+		bs1[i] -= bs2[i]
+	}
+
+	hpdiff := poke1.MaxHP() - poke2.MaxHP()
+	leveldif := poke1.Level() - poke2.Level()
+	combat := []string{fmt.Sprintf("%d", leveldif), fmt.Sprintf("%d",bs1[0]), fmt.Sprintf("%d",bs1[1]), fmt.Sprintf("%d",hpdiff), fmt.Sprintf("%d",bs1[3]),fmt.Sprintf("%d",bs1[4]), fmt.Sprintf("%d",powerdiff),fmt.Sprintf("%f",effectivitydiff),fmt.Sprintf("%f",ratingdiff)}
+	return combat
+}
+
+// IsPokemon checks whether a pokemon is a pokemon
+func (c *Calculator) IsPokemon(poke string) bool{
+	if c.pokemon[c.pokesID[poke]] != nil{
+		return true
+	}
+	return false
+}
+// IsMove checks whether a move is a move
+func (c *Calculator) IsMove(move string) bool{
+	if c.moves[move] != nil{
+		return true
+	}
+	return false
+}
 func readJSON(uri string, sort interface{}) error {
 	file, err := ioutil.ReadFile(uri)
 	if err != nil {
@@ -1466,6 +1544,7 @@ func readJSON(uri string, sort interface{}) error {
 	}
 	return nil
 }
+
 func random(min, max int) int {
 	if (max - min) <= 0 {
 		return 1

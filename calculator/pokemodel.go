@@ -1,5 +1,18 @@
 package calculator
-
+// PokeM is a pokemon that can be provided in json to calculate chances of winning 
+type PokeM struct{
+	Name	string
+	Level int
+	Attack int
+	Defense int
+	Hp int
+	Special int
+	Speed int
+	Move1 string
+	Move2 string
+	Move3 string
+	Move4 string
+}
 // Move is an attack that a Pokemon can perform when fighting another Pokemon
 type Move struct {
 	Name                 string
@@ -39,6 +52,7 @@ type Move struct {
 
 // Pokebases are
 type Pokebases []PokeBase
+
 
 // AllMoves are
 type AllMoves []Move
